@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scots English · Quản lý BTVN &amp; Star</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#134C81;--teal:#58B99F;--lblue:#A2DCE7;--red:#EF4D31;--green:#49A31F;--orange:#FA832E;--purple:#6B3FA0;--bg:#E6E9F2;--ink:#12365A;--line:#D3DCE8;box-sizing:border-box;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:600}
+.bn,.tt,.bt,.tab,.chip,.hd2,.th1,.th3,.tot,.tots,.rc .nmz,.rc .sc{font-family:'Baloo 2',Nunito,system-ui,sans-serif}
+.wrap{max-width:1500px;margin:0 auto;padding:12px;display:flex;flex-direction:column;gap:12px}
+.bar{background:#fff;border-radius:999px;padding:8px 14px 8px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;box-shadow:0 2px 12px rgba(19,76,129,.10)}
+.brand{display:flex;align-items:center;gap:10px}.bn{font-weight:800;font-size:21px;line-height:1;color:var(--navy);letter-spacing:.6px}.bs{font-size:12px;color:var(--teal);font-weight:800;margin-top:2px}
+.chip{border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;white-space:nowrap;border:0}
+.k0{background:#E3E8F0;color:#3B556E}.k1{background:#FFF1C7;color:#8A5A00}.k2{background:#D8F1E6;color:#1F7A55}.k3{background:var(--red);color:#fff}
+.tb{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tab{border:2.5px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:5px 16px;font-weight:700;font-size:15px}.tab.on{background:var(--tc);color:#fff}
+.bt{background:var(--navy);color:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;border:2px solid var(--navy)}.bt.o{background:var(--red);border-color:var(--red)}.bt.g{background:#fff;color:var(--navy)}.bt.t{background:var(--teal);border-color:var(--teal)}
+.card{background:#fff;border-radius:20px;padding:12px 16px;box-shadow:0 2px 10px rgba(19,76,129,.07)}
+.fl{display:flex;flex-direction:column;gap:3px;font-size:12px;font-weight:800;color:var(--navy)}
+.i{border:2px solid var(--line);border-radius:12px;padding:6px 10px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}.i:focus{outline:none;border-color:var(--teal)}
+.top{background:var(--navy);border-radius:24px;padding:12px 14px;color:#fff;background-image:radial-gradient(circle at 92% 0,rgba(88,185,159,.45),transparent 55%)}
+.tt{font-size:18px;font-weight:800;margin-bottom:8px}
+.pod{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:8px;align-items:end}
+.rc{border-radius:18px;padding:10px 6px;text-align:center;color:#fff}.rc .md{font-size:28px;line-height:1.1}.rc .nmz{font-weight:800;font-size:15px;line-height:1.15;word-break:break-word}.rc .sc{font-weight:800;font-size:22px}.rc .sub{font-size:11px;opacity:.92}
+.r1{background:var(--red);padding-top:18px;padding-bottom:14px}.r1 .md{font-size:40px}.r1 .sc{font-size:30px}.r2{background:var(--teal)}.r3{background:var(--lblue);color:var(--navy)}
+.rw{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-weight:800;font-size:12px}.rw input{width:64px;border:0;border-radius:8px;padding:3px 6px;font:inherit;text-align:center;color:var(--navy)}
+.tw{background:#fff;border-radius:20px;border:2px solid #CBE3EC;overflow:auto;max-height:72vh;box-shadow:0 2px 10px rgba(19,76,129,.07)}
+.tw table{border-collapse:separate;border-spacing:0;width:max-content}
+.tw th,.tw td{border-right:1px solid #E3E9F1;border-bottom:1px solid #E3E9F1;padding:3px 5px;font-size:13px;text-align:center;white-space:nowrap}
+.tw tbody tr{background:#fff}.tw tbody tr:nth-child(even){background:#F6F9FC}
+.th1{background:var(--navy);color:#fff;font-weight:700;font-size:14px}.th2{background:#DDF1F6;color:var(--navy);font-weight:800;font-size:12px}.th3{background:var(--teal);color:#fff;font-weight:700}
+.fq{border:0;border-radius:999px;background:var(--navy);color:#fff;font-size:11px;font-weight:800;padding:2px 9px}
+.tg{border:1.5px solid rgba(255,255,255,.65);color:#fff;background:transparent;border-radius:999px;font-size:10px;font-weight:800;padding:1px 8px;margin-top:2px}.tg.on{background:var(--orange);border-color:var(--orange)}
+.cell{width:100%;height:36px;min-width:108px;background:transparent;border:0;display:flex;align-items:center;justify-content:center}
+.pill{display:inline-block;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:800;line-height:1.3}
+.sd{background:#DDF3D2;color:#2C7A10}.sp{background:#FFEDB5;color:#8A5A00}.sm{background:#FFD9B8;color:#A64B0C}.sn{background:var(--red);color:#fff}.sz{background:#E1EDF2;color:#4B6F86}
+.e{color:#B5C3D1}.dx{margin-left:10px;color:var(--red);border:0;background:transparent;font-weight:800}
+.tot{font-weight:800;font-size:15px;color:var(--navy)}.tots{background:#E6F6F0!important;color:#1F7A55;font-weight:800;font-size:16px}
+.ov{position:fixed;inset:0;background:rgba(19,50,81,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.mo{background:#fff;border-radius:24px;padding:18px;width:100%;max-width:440px;max-height:90vh;overflow:auto}
+.hd2{font-weight:800;font-size:18px;color:var(--navy)}.x{border:0;background:#E3E8F0;border-radius:999px;width:34px;height:34px;font-weight:800}
+.fillb{border:2px solid var(--line);background:#fff;border-radius:14px;padding:10px;display:flex;justify-content:center}.fillb:active{background:#EEF5F9}
+@media(max-width:640px){.cell{height:46px}.nm{min-width:120px!important}.bn{font-size:17px}.bt{padding:10px 14px}.chip{font-size:12px;padding:6px 10px}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const {useState,useEffect,useRef}=React,h=React.createElement;
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const ST=[
+{k:'done',t:'Hoàn thành',c:'sd',x:['C6EFCE','006100']},
+{k:'part',t:'Chưa hoàn thành',c:'sp',x:['FFF2CC','9C5700']},
+{k:'miss',t:'Thiếu',c:'sm',x:['F8CBAD','843C0C']},
+{k:'none',t:'Không làm',c:'sn',x:['FF0000','FFFFFF']},
+{k:'nohw',t:'Không có bài',c:'sz',x:['DCE6F1','595959']}];
+const SM=Object.fromEntries(ST.map(s=>[s.k,s]));
+const COLS=[['rb','Review Book'],['app','App i-learning'],['vid','Quay video'],['bt','Bổ trợ']];
+const GAS='https://script.google.com/macros/s/AKfycbxyEHzP4K-IDEbsePLRkhUhSoleqqUlvjEMJNcKzsb48oPSogvg5EMNTBaaDH7ZVZBa/exec';
+const KEY='btvn-star-v1',NOW=new Date(),uid=()=>Math.random().toString(36).slice(2,9);
+const newCls=()=>({id:uid(),name:'Lớp mới',code:'',month:NOW.getMonth()+1,year:NOW.getFullYear(),pair:'36',students:[],v:{},x:{}});
+const days=c=>{const wd=c.pair==='36'?[2,5]:[4,0],n=new Date(c.year,c.month,0).getDate(),r=[];for(let d=1;d<=n;d++)if(wd.includes(new Date(c.year,c.month-1,d).getDay()))r.push(d);return r};
+const dk=(c,d)=>c.year+'-'+c.month+'-'+d;
+const cols=(c,d)=>COLS.filter(([k])=>k==='rb'||k==='app'||(c.x[dk(c,d)]||{})[k]);
+const lab=(c,d)=>String(d).padStart(2,'0')+'-'+MON[c.month-1];
+const stats=(c,s,star)=>{let d=0,n=0,t=0;days(c).forEach(y=>cols(c,y).forEach(([k])=>{const v=c.v[dk(c,y)+'|'+s.id+'|'+k];if(v){if(v==='done')d++;if(v==='none')n++;t+=+star[v]||0}}));return{d,n,t}};
+
+async function exportX(c,rows,tp,rw){
+ const wb=new ExcelJS.Workbook(),ws=wb.addWorksheet(('T'+c.month+'-'+(c.code||c.name)).replace(/[\\\/*?:\[\]]/g,'').slice(0,31)||'Lop');
+ const ds=days(c),ln={style:'thin',color:{argb:'FF8C8C8C'}},bd={top:ln,left:ln,bottom:ln,right:ln},ct={horizontal:'center',vertical:'middle',wrapText:true};
+ const put=(r,q,v,o={})=>{const x=ws.getCell(r,q);x.value=v;x.alignment=ct;x.border=bd;if(o.bg)x.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF'+o.bg}};x.font={bold:!!o.b,color:{argb:'FF'+(o.fg||'000000')}}};
+ const box=(r1,c1,r2,c2,v,o)=>{for(let r=r1;r<=r2;r++)for(let q=c1;q<=c2;q++)put(r,q,r===r1&&q===c1?v:'',o);if(r1!==r2||c1!==c2)ws.mergeCells(r1,c1,r2,c2)};
+ const H={bg:'134C81',fg:'FFFFFF',b:1};
+ let tc=3;ds.forEach(d=>tc+=cols(c,d).length);
+ ws.getCell(1,1).value='BẢNG THEO DÕI BÀI TẬP VỀ NHÀ - '+c.name+(c.code?' ('+c.code+')':'')+' - Tháng '+c.month+'/'+c.year;
+ ws.getCell(1,1).font={bold:true,size:14};ws.mergeCells(1,1,1,tc+1);
+ box(2,1,3,1,'STT',H);box(2,2,3,2,'Họ tên học sinh',H);
+ let q=3;
+ ds.forEach(d=>{const cs=cols(c,d);box(2,q,2,q+cs.length-1,lab(c,d),H);cs.forEach(([k,l],j)=>put(3,q+j,l,H));q+=cs.length});
+ box(2,tc,3,tc,'Tổng bài Hoàn thành',H);box(2,tc+1,3,tc+1,'Tổng Star',H);
+ rows.forEach((r,i)=>{const y=4+i;put(y,1,i+1);put(y,2,r.s.name);ws.getCell(y,2).alignment={vertical:'middle'};let p=3;
+  ds.forEach(d=>cols(c,d).forEach(([k])=>{const v=c.v[dk(c,d)+'|'+r.s.id+'|'+k];v?put(y,p,SM[v].t,{bg:SM[v].x[0],fg:SM[v].x[1]}):put(y,p,'');p++}));
+  put(y,tc,r.d,{b:1});put(y,tc+1,r.t,{b:1,bg:'FFF2CC'})});
+ let y=4+rows.length+1;ws.getCell(y,1).value='TOP 3 VINH DANH CUỐI THÁNG';ws.getCell(y,1).font={bold:true,size:12};y++;
+ ['Hạng','Họ tên','Star','Hoàn thành','Không làm','Thưởng ($)'].forEach((t,i)=>put(y,1+i,t,H));
+ tp.forEach((r,i)=>{y++;[i+1,r.s.name,r.t,r.d,r.n,rw[i]||''].forEach((t,j)=>put(y,1+j,t,{b:j===1}))});
+ ws.getColumn(1).width=6;ws.getColumn(2).width=28;for(let i=3;i<=tc+1;i++)ws.getColumn(i).width=15;
+ ws.getRow(3).height=32;ws.views=[{state:'frozen',xSplit:2,ySplit:3}];
+ ws.pageSetup={orientation:'landscape',fitToPage:true,fitToWidth:1,fitToHeight:0};
+ const buf=await wb.xlsx.writeBuffer(),a=document.createElement('a');
+ a.href=URL.createObjectURL(new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));
+ a.download=('BTVN_'+(c.code||c.name)+'_T'+c.month+'-'+c.year+'.xlsx').replace(/[^\w.\-]+/g,'_');
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
+
+function App(){
+ const [S,setS]=useState(()=>{try{const j=JSON.parse(localStorage.getItem(KEY));if(j&&j.cls&&j.cls.length)return j}catch(e){}const n=newCls();return{cls:[n],act:n.id,star:{done:2,part:1,miss:1,none:0,nohw:0},rw:['','','']}});
+ const [imp,setImp]=useState(''),[cf,setCf]=useState(false),[msg,setMsg]=useState(''),[sync,setSync]=useState('load'),[ready,setReady]=useState(false),[mod,setMod]=useState(null);
+ const R=useRef({last:'',busy:false,tm:0,S:null,lf:0,fail:0,again:0}).current;
+ const payload=s=>JSON.stringify({cls:s.cls,star:s.star,rw:s.rw});
+ const dirty=()=>payload(R.S)!==R.last;
+ const tmo=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(Error('hết thời gian chờ')),ms))]);
+ const norm=j=>{if(typeof j==='string')j=j.trim()?JSON.parse(j):null;if(!j||(Array.isArray(j)&&!j.length))return null;if(j.cls===undefined&&j.data!==undefined)return norm(j.data);if(Array.isArray(j.cls))return j.cls.length?j:null;if(!Object.keys(j).filter(k=>k!=='ok'&&k!=='status').length)return null;throw Error('định dạng dữ liệu Apps Script trả về không khớp (cần {cls,star,rw})')};
+ const call=async(opt,url)=>{const r=await tmo(fetch(url||GAS,opt),30000),t=await r.text();if(!r.ok)throw Error('HTTP '+r.status);if(/^\s*</.test(t))throw Error('Apps Script trả về trang HTML - kiểm tra Deploy: mục Who has access phải là Anyone');return t};
+ const why=e=>{const m=(e&&(e.message||e.code))||'lỗi không rõ';return /Failed to fetch|NetworkError|Load failed/i.test(m)?m+' (kiểm tra mạng và quyền Anyone của Apps Script)':m};
+ const flush=async()=>{clearTimeout(R.tm);if(R.busy){R.again=1;return}if(R.lf)return;R.busy=true;R.fail=0;setSync('saving');
+  try{do{R.again=0;const b=payload(R.S),t=await call({method:'POST',body:b});let j;try{j=JSON.parse(t)}catch(e){}if(j&&(j.ok===false||j.error))throw Error(j.error||'Apps Script báo lỗi');R.last=b}while(R.again||dirty());setSync('saved')}
+  catch(e){R.fail=1;setSync('err');setMsg('⚠️ Lưu lên Cloud thất bại: '+why(e))}
+  R.busy=false};
+ const load=async()=>{setSync('load');R.lf=0;
+  try{const d=norm(await call({cache:'no-store'},GAS+'?t='+Date.now()));
+   if(d){const s=R.S,n={...s,cls:d.cls,star:d.star||s.star,rw:d.rw||s.rw,act:d.cls.some(x=>x.id===s.act)?s.act:d.cls[0].id};R.S=n;R.last=payload(n);setS(n)}else R.last='';
+   setReady(true);if(dirty())flush();else setSync('saved')}
+  catch(e){R.lf=1;setSync('err');setReady(true);setMsg('⚠️ Không tải được dữ liệu Cloud: '+why(e)+'. Tạm thời chưa lưu lên Cloud để tránh ghi đè dữ liệu cũ.')}};
+ const reload=async()=>{setMsg('');if(!R.lf&&dirty()){await flush();if(R.fail)return}await load();if(!R.lf)setMsg('✅ Đã tải dữ liệu mới nhất.')};
+ useEffect(()=>{R.S=S;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}if(ready&&!R.lf&&dirty()){clearTimeout(R.tm);setSync('saving');R.tm=setTimeout(flush,1000)}},[S]);
+ useEffect(()=>{load()},[]);
+ const c=S.cls.find(x=>x.id===S.act)||S.cls[0];
+ const set=p=>setS(s=>({...s,cls:s.cls.map(x=>x.id===c.id?{...x,...p}:x)}));
+ const ds=days(c),rows=c.students.map(s=>({s,...stats(c,s,S.star)}));
+ const tp=[...rows].sort((a,b)=>b.t-a.t||b.d-a.d||a.n-b.n).slice(0,3).filter(r=>r.t>0);
+ const cyc=key=>{const o=['',...ST.map(s=>s.k)],nx=o[(o.indexOf(c.v[key]||'')+1)%o.length],v={...c.v};nx?v[key]=nx:delete v[key];set({v})};
+ const fill=(d,k,val)=>{const v={...c.v};c.students.forEach(s=>{const key=dk(c,d)+'|'+s.id+'|'+k;val?v[key]=val:delete v[key]});set({v})};
+ const tog=(d,k)=>{const o=c.x[dk(c,d)]||{};set({x:{...c.x,[dk(c,d)]:{...o,[k]:!o[k]}}})};
+ const addCls=()=>{const n=newCls();setCf(false);setS(s=>({...s,cls:[...s.cls,n],act:n.id}))};
+ const delCls=()=>{if(!cf){setCf(true);return}setCf(false);setS(s=>{let l=s.cls.filter(x=>x.id!==c.id);if(!l.length)l=[newCls()];return{...s,cls:l,act:l[0].id}})};
+ const addImp=()=>{const ns=imp.split(/\r?\n/).map(l=>(l.split('\t').map(s=>s.trim()).filter(s=>s&&!/^\d+$/.test(s)).pop()||'').replace(/^\d+[.)\-\s]+/,'')).filter(Boolean);if(ns.length)set({students:[...c.students,...ns.map(n=>({id:uid(),name:n}))]});setImp('');setMod(null)};
+ const doExport=async()=>{setMsg('');try{await exportX(c,rows,tp,S.rw);setMsg('✅ Đã gửi file Excel.')}catch(e){if(e&&e.code==='declined')return;setMsg('⚠️ Không tải được file: '+((e&&(e.message||e.code))||'lỗi không rõ'))}};
+ const CH=({load:['⏳ Đang tải dữ liệu...','k0'],saving:['⏳ Đang lưu...','k1'],saved:['Đã lưu lên Cloud ✓','k2'],err:[R.lf?'Lỗi tải - Bấm thử lại':'Lỗi lưu - Bấm thử lại','k3']})[sync];
+ if(!ready)return h('div',{style:{padding:40,textAlign:'center',fontFamily:'Baloo 2',fontSize:20,color:'#134C81'}},'⏳ Đang tải dữ liệu...');
+ const F=(l,el)=>h('label',{className:'fl'},l,el);
+ const YS=[...new Set([NOW.getFullYear()-1,NOW.getFullYear(),NOW.getFullYear()+1,NOW.getFullYear()+2,c.year])].sort();
+ const s1={position:'sticky',left:0,zIndex:2,minWidth:44,width:44,background:'inherit'},s2={...s1,left:44,minWidth:170,textAlign:'left'};
+ const TC=['#49A31F','#FA832E','#3AA7C4','#6B3FA0'],colName=k=>COLS.find(x=>x[0]===k)[1];
+ const Logo=h('svg',{width:40,height:40,viewBox:'0 0 40 40',fill:'#58B99F'},[[0,0,40,11],[0,0,12,24],[0,14,40,11],[28,14,12,26],[0,29,40,11]].map((r,i)=>h('rect',{key:i,x:r[0],y:r[1],width:r[2],height:r[3],rx:4})));
+ const Modal=(t,body)=>h('div',{className:'ov',onClick:e=>{if(e.target===e.currentTarget)setMod(null)}},h('div',{className:'mo'},h('div',{className:'flex items-center justify-between mb-3'},h('h3',{className:'hd2'},t),h('button',{className:'x',onClick:()=>setMod(null)},'✕')),body));
+ const modal=!mod?null:Modal(
+  mod.t==='imp'?'+ Thêm học sinh (nhập nhanh)':mod.t==='star'?'⚙️ Cấu hình Star':'⚡ Điền nhanh · '+colName(mod.k)+' · '+lab(c,mod.d),
+  mod.t==='imp'?h('div',{className:'flex flex-col gap-3'},h('textarea',{className:'i',rows:8,value:imp,placeholder:'Dán danh sách tên từ Excel/Word, mỗi dòng một học sinh',onChange:e=>setImp(e.target.value)}),h('div',{className:'text-xs'},'Hiện có '+c.students.length+' học sinh trong lớp.'),h('button',{className:'bt',onClick:addImp},'Thêm vào danh sách')):
+  mod.t==='star'?h('div',{className:'flex flex-col gap-2'},ST.map(s=>h('label',{key:s.k,className:'flex items-center justify-between gap-3'},h('span',{className:'pill '+s.c},s.t),h('span',{className:'flex items-center gap-1'},'+',h('input',{type:'number',step:'0.5',className:'i w-20',value:S.star[s.k],onChange:e=>setS(x=>({...x,star:{...x.star,[s.k]:e.target.value}}))})))),h('div',{className:'text-xs'},'Số Star cộng cho mỗi ô bài tập theo trạng thái.')):
+  h('div',{className:'flex flex-col gap-2'},h('div',{className:'text-xs'},'Áp dụng cho cả lớp ('+c.students.length+' học sinh). Sau đó chỉ cần sửa lại vài bạn.'),ST.map(s=>h('button',{key:s.k,className:'fillb',onClick:()=>{fill(mod.d,mod.k,s.k);setMod(null)}},h('span',{className:'pill '+s.c},s.t))),h('button',{className:'bt g',onClick:()=>{fill(mod.d,mod.k,'');setMod(null)}},'⌫ Xóa trạng thái cả cột')));
+ const medals=['🥇','🥈','🥉'];
+ const top=h('div',{className:'top'},h('div',{className:'tt'},'🏆 Vinh danh Top 3 · Tháng '+c.month+'/'+c.year),
+  tp.length?h('div',{className:'pod'},[1,0,2].filter(i=>tp[i]).map(i=>{const r=tp[i];return h('div',{key:r.s.id,className:'rc r'+(i+1)},h('div',{className:'md'},medals[i]),h('div',{className:'nmz'},r.s.name),h('div',{className:'sc'},'⭐ '+r.t),h('div',{className:'sub'},'Hoàn thành '+r.d+' · Không làm '+r.n),h('label',{className:'rw'},'Thưởng $',h('input',{value:S.rw[i]||'',onChange:e=>setS(x=>({...x,rw:x.rw.map((w,j)=>j===i?e.target.value:w)}))})))})):h('div',{className:'text-sm',style:{opacity:.85}},'Chưa có điểm Star nào. Hãy chấm bài tập để xem Top 3.'),
+  h('div',{className:'text-xs mt-2',style:{opacity:.75}},'Xếp hạng: Star cao hơn → nhiều Hoàn thành hơn → ít Không làm hơn. Dùng để làm bằng khen và trao thưởng đô-la.'));
+ const info=h('details',{className:'card',open:c.students.length===0},
+  h('summary',{className:'cursor-pointer',style:{fontFamily:'Baloo 2',fontWeight:800,color:'#134C81',fontSize:16}},'📋 Lớp '+c.name+(c.code?' ('+c.code+')':'')+' · Tháng '+c.month+'/'+c.year+' · '+(c.pair==='36'?'Thứ 3 - Thứ 6':'Thứ 5 - Chủ Nhật')+' · '+ds.length+' buổi · '+c.students.length+' học sinh'),
+  h('div',{className:'flex flex-wrap items-end gap-3 mt-3'},
+   F('Tên lớp',h('input',{className:'i',value:c.name,onChange:e=>set({name:e.target.value})})),
+   F('Mã lớp',h('input',{className:'i',value:c.code,placeholder:'VS2-K4A',onChange:e=>set({code:e.target.value})})),
+   F('Tháng',h('select',{className:'i',value:c.month,onChange:e=>set({month:+e.target.value})},[...Array(12)].map((_,i)=>h('option',{key:i,value:i+1},'Tháng '+(i+1))))),
+   F('Năm',h('select',{className:'i',value:c.year,onChange:e=>set({year:+e.target.value})},YS.map(y=>h('option',{key:y,value:y},y)))),
+   F('Lịch học cố định',h('select',{className:'i',value:c.pair,onChange:e=>set({pair:e.target.value})},h('option',{value:'36'},'Thứ 3 - Thứ 6'),h('option',{value:'57'},'Thứ 5 - Chủ Nhật'))),
+   h('button',{className:'bt',style:{marginLeft:'auto',background:cf?'#EF4D31':'#8A9BB0',borderColor:cf?'#EF4D31':'#8A9BB0'},onClick:delCls},cf?'Bấm lần nữa để xóa lớp':'🗑 Xóa lớp')));
+ const tbl=h('div',{className:'tw'},h('table',null,
+  h('thead',null,
+   h('tr',null,h('th',{rowSpan:2,className:'th1',style:{...s1,zIndex:4,background:'#134C81'}},'STT'),h('th',{rowSpan:2,className:'th1 nm',style:{...s2,zIndex:4,background:'#134C81',textAlign:'center'}},'Họ tên học sinh'),
+    ds.map(d=>h('th',{key:d,colSpan:cols(c,d).length,className:'th1'},h('div',null,lab(c,d)),h('div',{className:'flex gap-1 justify-center'},[['vid','Video'],['bt','Bổ trợ']].map(([k,t])=>{const on=(c.x[dk(c,d)]||{})[k];return h('button',{key:k,className:'tg'+(on?' on':''),onClick:()=>tog(d,k)},(on?'✓ ':'+ ')+t)})))),
+    h('th',{rowSpan:2,className:'th3'},'Tổng bài',h('br'),'Hoàn thành'),h('th',{rowSpan:2,className:'th3'},'Tổng Star ⭐')),
+   h('tr',null,ds.flatMap(d=>cols(c,d).map(([k,l])=>h('th',{key:d+k,className:'th2'},h('div',{className:'flex items-center justify-center gap-2'},h('span',null,l),h('button',{className:'fq',title:'Điền nhanh cả cột',onClick:()=>setMod({t:'fill',d,k})},'⚡ Điền nhanh'))))))),
+  h('tbody',null,rows.map((r,i)=>h('tr',{key:r.s.id},
+   h('td',{style:s1},i+1),
+   h('td',{style:s2,className:'nm'},h('span',{style:{fontWeight:800}},r.s.name),h('button',{title:'Xóa học sinh',className:'dx',onClick:()=>set({students:c.students.filter(x=>x.id!==r.s.id)})},'×')),
+   ds.flatMap(d=>cols(c,d).map(([k])=>{const key=dk(c,d)+'|'+r.s.id+'|'+k,v=c.v[key];return h('td',{key,style:{padding:0}},h('button',{className:'cell',onClick:()=>cyc(key)},v?h('span',{className:'pill '+SM[v].c},SM[v].t):h('span',{className:'e'},'·')))})),
+   h('td',{className:'tot'},r.d),h('td',{className:'tots'},r.t))))));
+ return h('div',{className:'wrap'},
+  h('header',{className:'bar'},h('div',{className:'brand'},Logo,h('div',null,h('div',{className:'bn'},'SCOTS ENGLISH'),h('div',{className:'bs'},'Quản lý BTVN & Quy đổi Star'))),
+   h('button',{className:'chip '+CH[1],onClick:()=>{if(sync==='err')R.lf?load():flush()}},CH[0])),
+  h('div',{className:'tb'},S.cls.map((x,i)=>h('button',{key:x.id,className:'tab'+(x.id===c.id?' on':''),style:{'--tc':TC[i%4]},onClick:()=>{setCf(false);setS(s=>({...s,act:x.id}))}},x.name+(x.code?' · '+x.code:''))),h('button',{className:'bt g',onClick:addCls},'+ Lớp mới')),
+  h('div',{className:'tb'},h('button',{className:'bt',onClick:()=>setMod({t:'imp'})},'+ Thêm học sinh'),h('button',{className:'bt t',onClick:()=>setMod({t:'star'})},'⚙️ Cấu hình Star'),h('button',{className:'bt g',onClick:reload},'🔄 Tải lại dữ liệu mới nhất'),h('button',{className:'bt o',style:{marginLeft:'auto'},onClick:doExport},'⬇ Xuất file Excel (.xlsx)')),
+  msg&&h('div',{className:'card text-sm'},msg),
+  info,top,tbl,
+  c.students.length===0&&h('div',{className:'card text-center text-sm'},'Chưa có học sinh. Bấm “+ Thêm học sinh” để dán danh sách.'),
+  modal);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

@@ -42,7 +42,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:
 button:active{transform:scale(.98)}
 .bn,.tt,.hd2,.th1,.tot,.tots,.rc .nmz,.rc .sc{font-family:'Plus Jakarta Sans','Be Vietnam Pro',system-ui,sans-serif}
 
-.wrap{max-width:1520px;margin:0 auto;padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
+.wrap{max-width:1520px;margin:0 auto;padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
 
 /* Tier 1: Floating Pill Top Header (Scots English Style + Wave Shapes) */
 .bar{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 4px 20px rgba(19,76,129,.06);flex-wrap:wrap}
@@ -76,6 +76,7 @@ button:active{transform:scale(.98)}
 .bt.g{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
 .bt.g:hover{background:#F7FAFC;border-color:#B8C7D9}
 .bt.sm{padding:5px 12px;font-size:12.5px}
+.bt:disabled{opacity:.45;cursor:not-allowed;transform:none}
 
 /* Tier 2: AF Underline Navigation */
 .afb{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1.5px solid var(--line);padding:0 4px}
@@ -105,7 +106,7 @@ button:active{transform:scale(.98)}
 .sum-hd::-webkit-details-marker{display:none}
 .mpill{display:inline-flex;align-items:center;gap:5px;background:#F1F6FB;color:var(--navy);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:700}
 
-/* Session Schedule Chips */
+/* Session Schedule & Column Customization Chips */
 .sch-box{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:8px}
 .sch-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .dpill{display:inline-flex;align-items:center;gap:4px;background:#EDF6FA;color:var(--navy);border:1px solid #C6E2EE;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700}
@@ -114,6 +115,12 @@ button:active{transform:scale(.98)}
 .dpill button:hover{opacity:1;color:var(--red)}
 .spill{display:inline-flex;align-items:center;gap:4px;background:#FFF5F5;color:#B91C1C;border:1px dashed #FEB2B2;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700}
 .spill:hover{background:#FEE2E2}
+
+/* Custom Column Editor Grid */
+.col-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin-top:4px}
+.col-item{background:#F8FBFE;border:1px solid #DCE5F0;border-radius:14px;padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+.col-chk{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:#486581;cursor:pointer;user-select:none}
+.col-chk input{accent-color:var(--navy);width:14px;height:14px;cursor:pointer}
 
 /* Decorative EdTech Shapes for Info Strip & Top 3 Bento Showcase */
 .info-card{position:relative;overflow:hidden;background-image:linear-gradient(116deg,#FFFFFF 0%,#FFFFFF 43%,rgba(223,241,246,.52) 43.2%,rgba(223,241,246,.52) 61%,rgba(232,247,242,.55) 61.2%,rgba(232,247,242,.55) 75%,#FFFFFF 75.2%)}
@@ -146,6 +153,16 @@ button:active{transform:scale(.98)}
 .rw input{width:56px;border:0;background:transparent;font:inherit;font-weight:800;text-align:center;color:var(--navy)}
 .rw input:focus{outline:none}
 
+/* Quick Status Filter Bar */
+.fltbar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(19,76,129,.03)}
+.flt-pills{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.fchip{display:inline-flex;align-items:center;gap:5px;border:1.5px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:4px 11px;font-size:12px;font-weight:700}
+.fchip:hover{border-color:#B8C7D9;background:#F8FAFC}
+.fchip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.fchip.warn.on{background:var(--red);border-color:var(--red);color:#fff}
+.fcnt{background:#EDF2F7;color:var(--navy);border-radius:999px;padding:0 6px;font-size:11px;font-weight:800}
+.fchip.on .fcnt{background:rgba(255,255,255,.22);color:#fff}
+
 /* Table */
 .tw{background:#fff;border-radius:20px;border:1.5px solid var(--line);overflow:auto;max-height:70vh;max-height:70dvh;box-shadow:0 2px 12px rgba(19,76,129,.04)}
 .tw table{border-collapse:separate;border-spacing:0;width:max-content}
@@ -167,15 +184,43 @@ button:active{transform:scale(.98)}
 .pill{display:inline-block;border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:700;line-height:1.3}
 .sd{background:#DCFCE7;color:#15803D}.sp{background:#FEF3C7;color:#A16207}.sm{background:#FFEDD5;color:#C2410C}.sn{background:#FEE2E2;color:#B91C1C}.sz{background:#E2E8F0;color:#475569}.sa{background:#EDE9FE;color:#5B21B6}
 .e{color:#CBD5E1;font-weight:700}
-.dx{margin-left:8px;color:var(--muted);opacity:.25;border:0;background:transparent;font-weight:700;padding:2px 5px;border-radius:6px}
-tr:hover .dx{opacity:.75}
+
+/* Student Name Cell Actions (1-1 Zalo, Note, Delete) */
+.nm-box{display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:210px}
+.nm-left{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.nm-top{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nm-note-tag{font-size:10.5px;color:#92400E;background:#FFFBEB;border:1px solid #FDE68A;border-radius:6px;padding:1px 6px;margin-top:2px;max-width:185px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm-acts{display:inline-flex;align-items:center;gap:2px;flex-shrink:0}
+.icb{border:0;background:#F1F5F9;color:#475569;border-radius:7px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center}
+.icb:hover{background:#E2E8F0;color:var(--navy)}
+.icb.z11{background:#E8F7F2;color:#1D6F58}
+.icb.z11:hover{background:#38967D;color:#fff}
+.icb.nt.has{background:#FEF3C7;color:#B45309}
+.icb.nt:hover{background:#FDE68A;color:#92400E}
+.dx{color:var(--muted);opacity:.35;border:0;background:transparent;font-weight:700;width:22px;height:24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center}
+tr:hover .dx{opacity:.85}
 .dx:hover{opacity:1!important;color:var(--red);background:#FEECE9}
+
 .tot{font-weight:800;font-size:14px;color:var(--navy);background:#F8FAFC}
 .tots{background:#ECFDF5!important;color:#047857;font-weight:800;font-size:15px}
 
+/* Table Footer Completion Rate Row */
+.tw tfoot td{position:sticky;bottom:0;z-index:3;background:#F1F6FB;border-top:2px solid #CBD5E1;border-bottom:0;padding:7px 8px;font-weight:800;font-size:12px;color:var(--navy)}
+.rp{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:800}
+.rp-hi{background:#DCFCE7;color:#15803D}
+.rp-md{background:#FEF3C7;color:#A16207}
+.rp-lo{background:#FEE2E2;color:#B91C1C}
+.rp-na{background:#E2E8F0;color:#64748B}
+
+/* Floating Undo Toast */
+.undo-toast{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:60;background:#102A43;color:#fff;border-radius:999px;padding:8px 10px 8px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 28px rgba(15,42,67,.35);border:1px solid rgba(255,255,255,.14);max-width:94vw;animation:slideUp .2s ease-out}
+@keyframes slideUp{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
+.undo-btn{background:#F59E0B;color:#102A43;border:0;border-radius:999px;padding:5px 13px;font-weight:800;font-size:12.5px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.undo-btn:hover{background:#FBBF24}
+
 /* Modals */
 .ov{position:fixed;inset:0;background:rgba(15,42,67,.55);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));z-index:50;height:100vh;height:100dvh}
-.mo{background:#fff;border-radius:24px;padding:20px;width:100%;max-width:480px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto;box-shadow:0 20px 40px rgba(15,42,67,.22)}
+.mo{background:#fff;border-radius:24px;padding:20px;width:100%;max-width:500px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto;box-shadow:0 20px 40px rgba(15,42,67,.22)}
 .hd2{font-weight:800;font-size:17px;color:var(--navy);display:flex;align-items:center;gap:8px}
 .x{border:0;background:#F1F5F9;color:var(--muted);border-radius:999px;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
 .x:hover{background:#E2E8F0;color:var(--ink)}
@@ -187,7 +232,8 @@ tr:hover .dx{opacity:.75}
 .sl{position:absolute;right:0;top:100%;margin-top:6px;min-width:280px;max-width:90vw;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 28px rgba(19,76,129,.16);z-index:40;overflow:hidden}
 .si{display:block;width:100%;text-align:left;border:0;background:#fff;padding:10px 14px;border-bottom:1px solid #F1F5F9;font:inherit}
 .si:hover,.si:active{background:#F1F6FB}
-.wn{display:inline-flex;align-items:center;gap:3px;margin-left:6px;background:#FEE2E2;color:#B91C1C;border-radius:999px;font-size:10.5px;font-weight:700;padding:1px 8px;white-space:nowrap;vertical-align:middle}
+.wn{display:inline-flex;align-items:center;gap:3px;margin-left:4px;background:#FEE2E2;color:#B91C1C;border:0;border-radius:999px;font-size:10.5px;font-weight:700;padding:1px 8px;white-space:nowrap;vertical-align:middle}
+.wn:hover{background:#FECACA}
 
 /* Mobile Responsive */
 @media(max-width:640px){
@@ -215,17 +261,18 @@ tr:hover .dx{opacity:.75}
   .msel{flex:1;min-width:0;height:44px;font-weight:700;color:var(--navy)}
   .nv{flex:0 0 auto;min-height:44px;padding:0 11px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--navy);font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:3px}
   .nv:disabled{opacity:.35}
-  .mbr{display:flex;gap:6px;align-items:center}
-  .mtg,.mtg2{min-height:42px;padding:0 13px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy);font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:5px}
+  .mbr{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .mtg,.mtg2{min-height:40px;padding:0 12px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy);font-weight:700;font-size:12.5px;display:inline-flex;align-items:center;gap:5px}
   .mtg.on,.mtg2.on{background:var(--teal-d);border-color:var(--teal-d);color:#fff}
-  .mfq{flex:1;min-height:42px;border-radius:999px;border:0;background:var(--navy);color:#fff;font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
-  .mrow{display:grid;grid-template-columns:38% repeat(var(--n),minmax(0,1fr));gap:6px;padding:7px;align-items:stretch;border-bottom:1px solid #E6EDF5;background:#fff}
+  .mfq{flex:1;min-height:40px;border-radius:999px;border:0;background:var(--navy);color:#fff;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+  .mrow{display:grid;grid-template-columns:40% repeat(var(--n),minmax(0,1fr));gap:6px;padding:7px;align-items:stretch;border-bottom:1px solid #E6EDF5;background:#fff}
   .ml{background:#fff;border-radius:18px;border:1.5px solid var(--line);overflow:hidden}
   .ml .mrow:nth-child(even){background:#F9FBFD}
-  .mhd{background:var(--navy);color:#fff;border-radius:12px;border-bottom:0;font-weight:700;font-size:12.5px;text-align:center;align-items:center;padding:8px 6px}
+  .mhd{background:var(--navy);color:#fff;border-radius:12px;border-bottom:0;font-weight:700;font-size:12px;text-align:center;align-items:center;padding:8px 6px}
   .mnm{display:flex;flex-direction:column;justify-content:center;min-width:0}
-  .mn1{font-weight:700;font-size:14.5px;line-height:1.25;word-break:break-word;color:var(--ink)}
-  .mn2{font-size:11px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:6px}
+  .mn1{font-weight:700;font-size:14px;line-height:1.25;word-break:break-word;color:var(--ink)}
+  .mn2{font-size:11px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+  .macts{display:flex;align-items:center;gap:4px;margin-top:4px;flex-wrap:wrap}
   .mcell{min-height:56px;border:1.5px solid #E2E9F2;background:#F6F9FC;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:3px}
   .mcell .pill{width:100%;white-space:normal;text-align:center;font-size:13px;padding:8px 4px;border-radius:10px;line-height:1.2}
   .n3 .pill,.n4 .pill{font-size:11.5px}
@@ -248,6 +295,8 @@ const ST=[
 const SM=Object.fromEntries(ST.map(s=>[s.k,s]));
 const DSTAR={done:2,part:1,miss:1,none:0,abs:0,nohw:0};
 const COLS=[['rb','Review Book'],['app','App i-learning'],['vid','Quay video'],['bt','Bổ trợ']];
+const DEF_COL_NAMES={rb:'Review Book',app:'App i-learning',vid:'Quay video',bt:'Bổ trợ'};
+const DEF_BASE_COLS=['rb','app'];
 const GAS='https://script.google.com/macros/s/AKfycbxyEHzP4K-IDEbsePLRkhUhSoleqqUlvjEMJNcKzsb48oPSogvg5EMNTBaaDH7ZVZBa/exec';
 const KEY='btvn-star-v1',NOW=new Date(),uid=()=>Math.random().toString(36).slice(2,9);
 const DAF='af-james',EB={c:{},a:{},s:'',r:''},WDN=['Chủ Nhật','Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7'];
@@ -268,6 +317,7 @@ const Ic=(n,sz=15,st={})=>{
   share:[h('path',{key:1,d:'M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8'}),h('polyline',{key:2,points:'16 6 12 2 8 6'}),h('line',{key:3,x1:12,y1:2,x2:12,y2:15})],
   image:[h('rect',{key:1,x:3,y:3,width:18,height:18,rx:2}),h('circle',{key:2,cx:8.5,cy:8.5,r:1.5}),h('polyline',{key:3,points:'21 15 16 10 5 21'})],
   download:[h('path',{key:1,d:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'}),h('polyline',{key:2,points:'7 10 12 15 17 10'}),h('line',{key:3,x1:12,y1:15,x2:12,y2:3})],
+  upload:[h('path',{key:1,d:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'}),h('polyline',{key:2,points:'17 8 12 3 7 8'}),h('line',{key:3,x1:12,y1:3,x2:12,y2:15})],
   star:[h('polygon',{key:1,points:'12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2',fill:'currentColor'})],
   trophy:[h('path',{key:1,d:'M6 9H4.5a2.5 2.5 0 0 1 0-5H6'}),h('path',{key:2,d:'M18 9h1.5a2.5 2.5 0 0 0 0-5H18'}),h('path',{key:3,d:'M4 22h16'}),h('path',{key:4,d:'M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'}),h('path',{key:5,d:'M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'}),h('path',{key:6,d:'M18 2H6v7a6 6 0 0 0 12 0V2Z'})],
   bolt:[h('polygon',{key:1,points:'13 2 3 14 12 14 11 22 21 10 12 10 13 2'})],
@@ -281,15 +331,30 @@ const Ic=(n,sz=15,st={})=>{
   users:[h('path',{key:1,d:'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'}),h('circle',{key:2,cx:9,cy:7,r:4}),h('path',{key:3,d:'M23 21v-2a4 4 0 0 0-3-3.87'}),h('path',{key:4,d:'M16 3.13a4 4 0 0 1 0 7.75'})],
   archive:[h('polyline',{key:1,points:'21 8 21 21 3 21 3 8'}),h('rect',{key:2,x:1,y:3,width:22,height:5}),h('line',{key:3,x1:10,y1:12,x2:14,y2:12})],
   wifiOff:[h('line',{key:1,x1:1,y1:1,x2:23,y2:23}),h('path',{key:2,d:'M16.72 11.06A10.94 10.94 0 0 1 19 12.55'}),h('path',{key:3,d:'M5 12.55a10.94 10.94 0 0 1 5.17-2.39'}),h('path',{key:4,d:'M10.71 5.05A16 16 0 0 1 22.58 9'}),h('path',{key:5,d:'M1.42 9a15.91 15.91 0 0 1 4.7-2.88'}),h('path',{key:6,d:'M8.53 16.11a6 6 0 0 1 6.95 0'}),h('line',{key:7,x1:12,y1:20,x2:12.01,y2:20})],
+  msg:[h('path',{key:1,d:'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'})],
+  note:[h('path',{key:1,d:'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'}),h('polyline',{key:2,points:'14 2 14 8 20 8'}),h('line',{key:3,x1:16,y1:13,x2:8,y2:13}),h('line',{key:4,x1:16,y1:17,x2:8,y2:17})],
+  undo:[h('polyline',{key:1,points:'9 14 4 9 9 4'}),h('path',{key:2,d:'M20 20v-7a4 4 0 0 0-4-4H4'})],
+  filter:[h('polygon',{key:1,points:'22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3'})],
+  db:[h('ellipse',{key:1,cx:12,cy:5,rx:9,ry:3}),h('path',{key:2,d:'M21 12c0 1.66-4 3-9 3s-9-1.34-9-3'}),h('path',{key:3,d:'M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5'})],
   x:[h('line',{key:1,x1:18,y1:6,x2:6,y2:18}),h('line',{key:2,x1:6,y1:6,x2:18,y2:18})]
  };
  return h('svg',p,M[n]||null);
 };
 
-const newCls=(af,m,y)=>({id:uid(),name:'Lớp mới',code:'',month:m||NOW.getMonth()+1,year:y||NOW.getFullYear(),pair:'36',students:[],v:{},x:{},bn:{},skip:[],add:[],afId:af||DAF});
+/* Flexible Column Helpers per Class */
+const getColMeta=c=>COLS.map(([k,def])=>[k,((c.colNames||{})[k]||def).trim()||def]);
+const getBaseCols=c=>Array.isArray(c.baseCols)&&c.baseCols.length?c.baseCols:DEF_BASE_COLS;
+const cols=(c,d)=>{const bs=new Set(getBaseCols(c));return getColMeta(c).filter(([k])=>bs.has(k)||(c.x[dk(c,d)]||{})[k])};
+const getToggleCols=c=>{const bs=new Set(getBaseCols(c));return getColMeta(c).filter(([k])=>!bs.has(k))};
+const shortCol=l=>{
+ const m={'Review Book':'RB','App i-learning':'App','Quay video':'Video','Bổ trợ':'BT','Workbook':'WB','Speaking':'Speak','Writing':'Write','Reading':'Read','Listening':'Listen','Vocabulary':'Vocab','Grammar':'Gram'};
+ if(m[l])return m[l];
+ return l.length<=7?l:l.slice(0,6)+'…';
+};
+
+const newCls=(af,m,y)=>({id:uid(),name:'Lớp mới',code:'',month:m||NOW.getMonth()+1,year:y||NOW.getFullYear(),pair:'36',students:[],v:{},x:{},bn:{},skip:[],add:[],colNames:{...DEF_COL_NAMES},baseCols:[...DEF_BASE_COLS],afId:af||DAF});
 const days=c=>{const wd=PAIR_WD[c.pair]||[2,5],n=new Date(c.year,c.month,0).getDate(),sk=new Set(c.skip||[]),ad=new Set(c.add||[]),r=[];for(let d=1;d<=n;d++)if((wd.includes(new Date(c.year,c.month-1,d).getDay())&&!sk.has(d))||ad.has(d))r.push(d);return r};
 const dk=(c,d)=>c.year+'-'+c.month+'-'+d;
-const cols=(c,d)=>COLS.filter(([k])=>k==='rb'||k==='app'||(c.x[dk(c,d)]||{})[k]);
 const lab=(c,d)=>String(d).padStart(2,'0')+'-'+MON[c.month-1];
 const stats=(c,s,star)=>{let d=0,n=0,t=0,r=0,w=0;days(c).forEach(y=>{let z=0;cols(c,y).forEach(([k])=>{const v=c.v[dk(c,y)+'|'+s.id+'|'+k];if(v){if(v==='done')d++;if(v==='none'){n++;z=1}t+=+star[v]||0}});r=z?r+1:0;if(r>w)w=r});return{d,n,t,w}};
 const migrate=d=>{const afs=Array.isArray(d.afs)&&d.afs.length?d.afs:[{id:DAF,name:'AF James'}];return{cls:d.cls.map(x=>afs.some(a=>a.id===x.afId)?x:{...x,afId:afs[0].id}),afs,star:{...DSTAR,...(d.star||{})},rw:d.rw}};
@@ -297,7 +362,60 @@ const snap=s=>({c:Object.fromEntries(s.cls.map(x=>[x.id,JSON.stringify(x)])),a:O
 const mine=(s,b)=>{const df=(L,m)=>{const ids=new Set(L.map(x=>x.id));return[L.filter(x=>m[x.id]!==JSON.stringify(x)),Object.keys(m).filter(i=>!ids.has(i))]},[cu,cd]=df(s.cls,b.c),[au,ad]=df(s.afs,b.a);return{cu,cd,au,ad,st:JSON.stringify(s.star)!==b.s,rc:JSON.stringify(s.rw)!==b.r,S:s}};
 const apply=(r,m)=>{const up=(L,u,d)=>{const o=L.filter(x=>!d.includes(x.id));u.forEach(x=>{const i=o.findIndex(y=>y.id===x.id);i<0?o.push(x):o[i]=x});return o};return{cls:up(r.cls,m.cu,m.cd),afs:up(r.afs,m.au,m.ad),star:m.st?m.S.star:r.star,rw:m.rc?m.S.rw:r.rw}};
 const nz=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();
-const SH={rb:'RB',app:'App',vid:'Video',bt:'BT'},GL={done:'✓',part:'◐',miss:'−',none:'✗',abs:'⊘',nohw:'∅'};
+const GL={done:'✓',part:'◐',miss:'−',none:'✗',abs:'⊘',nohw:'∅'};
+
+/* Session completion rate calculator */
+const dayRate=(c,d)=>{
+ const cs=cols(c,d);let exp=0,dn=0;
+ c.students.forEach(s=>cs.forEach(([k])=>{
+  const v=c.v[dk(c,d)+'|'+s.id+'|'+k];
+  if(v==='abs'||v==='nohw')return;
+  exp++;if(v==='done')dn++;
+ }));
+ const pct=exp?Math.round((dn/exp)*100):0;
+ return{dn,exp,pct,cls:exp===0?'rp-na':pct>=80?'rp-hi':pct>=60?'rp-md':'rp-lo'};
+};
+
+/* 1-1 Personalized Parent Reminder Builder */
+const pmsg=(c,af,r,d,tone='remind')=>{
+ const cs=cols(c,d),note=((c.bn||{})[dk(c,d)]||'').trim();
+ const when=WDN[new Date(c.year,c.month-1,d).getDay()]+' · '+lab(c,d)+'/'+c.year;
+ const items=cs.map(([k,l])=>({k,l,v:c.v[dk(c,d)+'|'+r.s.id+'|'+k]||''}));
+ const bad=items.filter(i=>i.v==='part'||i.v==='miss'||i.v==='none');
+ const isAbs=items.length>0&&items.every(i=>i.v==='abs');
+ const allDone=items.length>0&&items.every(i=>i.v==='done'||i.v==='nohw');
+ const clsLabel=c.name+(c.code?' ('+c.code+')':'');
+
+ if(tone==='praise'||(allDone&&tone==='auto')){
+  const L=['Chào Quý phụ huynh bé '+r.s.name+',',
+   'Em là '+af+' - Trợ giảng lớp '+clsLabel+' tại Scots English xin gửi lời khen tới con trong buổi học '+when+' ạ:'];
+  if(note)L.push('• Nội dung BTVN buổi học: '+note);
+  L.push('• Kết quả: Con đã hoàn thành đầy đủ và xuất sắc tất cả bài tập được giao ('+items.filter(i=>i.v==='done').map(i=>i.l).join(', ')+').',
+   '• Tổng điểm tích lũy hiện tại của con: '+r.t+' Star ⭐',
+   '','Rất mong con tiếp tục giữ vững phong độ chăm chỉ này ở các buổi học tiếp theo. Em cảm ơn Quý phụ huynh đã luôn đồng hành cùng con ạ!');
+  return L.join('\n');
+ }
+
+ const L=['Chào Quý phụ huynh bé '+r.s.name+',',
+  'Em là '+af+' - Trợ giảng lớp '+clsLabel+' tại Scots English xin phép cập nhật tình hình BTVN buổi học '+when+' của con ạ:'];
+ if(note)L.push('• Nội dung BTVN buổi học: '+note);
+ if(isAbs){
+  L.push('• Tình trạng: Buổi học này con xin nghỉ, phụ huynh hỗ trợ nhắc con xem lại nội dung bài học và hoàn thành phần BTVN trên để theo kịp tiến độ lớp nhé ạ.');
+ }else if(bad.length){
+  const det=bad.map(i=>i.l+' ('+SM[i.v].t+')').join(', ');
+  L.push('• Phần bài con cần hoàn thiện bổ sung: '+det);
+ }else{
+  L.push('• Phần bài con cần kiểm tra/hoàn thiện: '+items.map(i=>i.l).join(', '));
+ }
+ L.push('• Tổng điểm tích lũy hiện tại của con: '+r.t+' Star ⭐');
+ if(r.w>=2||tone==='urgent'){
+  L.push('','⚠️ Lưu ý: Hiện con đang thiếu/chưa hoàn thành BTVN '+(r.w>=2?r.w+' buổi liên tiếp':'nhiều buổi gần đây')+'. Phụ huynh vui lòng dành chút thời gian nhắc nhở và đôn đốc con làm bài đầy đủ trước buổi học tới để đảm bảo kiến thức nhé ạ.');
+ }else{
+  L.push('','Phụ huynh nhắc con hoàn thành sớm và gửi lại bài để thầy cô kiểm tra và cộng thêm Star cho con nhé ạ.');
+ }
+ L.push('Em cảm ơn Quý phụ huynh rất nhiều!');
+ return L.join('\n');
+};
 
 const zinfo=(c,af,d)=>{const cs=cols(c,d),note=((c.bn||{})[dk(c,d)]||'').trim(),rs=c.students.map(s=>{const it=cs.map(([k,l])=>({k,l,v:c.v[dk(c,d)+'|'+s.id+'|'+k]||''})),g=it.map(i=>i.v).filter(Boolean);
  const grp=!g.length?'x':g.every(v=>v==='abs')?'a':g.includes('none')?'n':g.some(v=>v==='part'||v==='miss')?'p':g.some(v=>v==='done')?'d':'z';
@@ -327,7 +445,7 @@ const zcard=(c,af,zi,ref)=>h('div',{ref,style:{width:370,background:'#fff',borde
  ),
  h('div',{style:{padding:'6px 14px 8px'}},zi.rs.map((r,i)=>h('div',{key:r.s.id,style:{display:'flex',alignItems:'center',justifyContent:'space-between',gap:8,padding:'7px 4px',borderBottom:'1px solid #EDF2F7'}},
   h('div',{style:{fontWeight:700,fontSize:13,minWidth:0,color:'#102A43'}},(i+1)+'. '+r.s.name),
-  h('div',{style:{display:'flex',gap:4,flexShrink:0}},r.it.map(x=>h('span',{key:x.k,className:'pill '+(x.v?SM[x.v].c:'sz'),style:{fontSize:11,padding:'2px 8px',opacity:x.v?1:.45}},SH[x.k]+' '+(x.v?GL[x.v]:'·'))))
+  h('div',{style:{display:'flex',gap:4,flexShrink:0}},r.it.map(x=>h('span',{key:x.k,className:'pill '+(x.v?SM[x.v].c:'sz'),style:{fontSize:11,padding:'2px 8px',opacity:x.v?1:.45}},shortCol(x.l)+' '+(x.v?GL[x.v]:'·'))))
  ))),
  h('div',{style:{padding:'9px 18px 13px',background:'#F9FBFD',fontSize:10.5,color:'#5B748E',fontWeight:600}},'✓ Hoàn thành · ◐ Chưa hoàn thành · − Thiếu · ✗ Không làm · ⊘ Nghỉ học · ∅ Không có bài')
 );
@@ -346,6 +464,7 @@ const scard=(c,af,r,star,ref)=>{const ds=days(c),totCols=ds.reduce((n,d)=>n+cols
    h('div',{style:{fontSize:11,fontWeight:700,color:'#5B748E',textTransform:'uppercase',letterSpacing:.4}},'Học viên'),
    h('div',{style:{fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:800,fontSize:19,color:'#134C81',marginTop:1}},r.s.name),
    h('div',{style:{fontSize:12,color:'#486581',fontWeight:600,marginTop:3}},'Lớp: ',h('strong',{style:{color:'#102A43'}},c.name+(c.code?' ('+c.code+')':'')),' · AF: ',h('strong',{style:{color:'#102A43'}},af)),
+   r.s.note&&h('div',{style:{marginTop:5,fontSize:11.5,color:'#92400E',background:'#FFFBEB',border:'1px solid #FDE68A',borderRadius:8,padding:'3px 8px',fontWeight:600}},'Ghi chú: '+r.s.note),
    h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:8,marginTop:12}},
     h('div',{style:{background:'#FFFBEB',border:'1px solid #FDE68A',borderRadius:14,padding:'8px 6px',textAlign:'center'}},
      h('div',{style:{fontSize:10.5,fontWeight:700,color:'#92400E'}},'TỔNG STAR'),
@@ -364,7 +483,7 @@ const scard=(c,af,r,star,ref)=>{const ds=days(c),totCols=ds.reduce((n,d)=>n+cols
   h('div',{style:{padding:'8px 16px 10px'}},
    ds.map(d=>{const cs=cols(c,d);return h('div',{key:d,style:{display:'flex',alignItems:'center',justifyContent:'space-between',gap:8,padding:'6px 2px',borderBottom:'1px solid #EDF2F7'}},
     h('div',{style:{fontWeight:700,fontSize:12,color:'#334E68'}},lab(c,d)),
-    h('div',{style:{display:'flex',gap:4,flexWrap:'wrap',justifyContent:'flex-end'}},cs.map(([k])=>{const v=c.v[dk(c,d)+'|'+r.s.id+'|'+k]||'';return h('span',{key:k,className:'pill '+(v?SM[v].c:'sz'),style:{fontSize:10.5,padding:'2px 7px',opacity:v?1:.45}},SH[k]+' '+(v?GL[v]:'·'))}))
+    h('div',{style:{display:'flex',gap:4,flexWrap:'wrap',justifyContent:'flex-end'}},cs.map(([k,l])=>{const v=c.v[dk(c,d)+'|'+r.s.id+'|'+k]||'';return h('span',{key:k,className:'pill '+(v?SM[v].c:'sz'),style:{fontSize:10.5,padding:'2px 7px',opacity:v?1:.45}},shortCol(l)+' '+(v?GL[v]:'·'))}))
    )})
   ),
   h('div',{style:{padding:'9px 18px 13px',background:'#F9FBFD',fontSize:10.5,color:'#5B748E',fontWeight:600}},'✓ Hoàn thành · ◐ Chưa hoàn thành · − Thiếu · ✗ Không làm · ⊘ Nghỉ học')
@@ -383,7 +502,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
   overflow:'hidden',
   boxShadow:'0 12px 32px rgba(9,43,92,.32)'
  }},
- /* Subtle decorative line-art academic motifs matching reference poster */
  h('svg',{xmlns:'http://www.w3.org/2000/svg',width:52,height:52,viewBox:'0 0 24 24',fill:'none',stroke:'rgba(255,255,255,0.12)',strokeWidth:1.4,style:{position:'absolute',top:68,left:14,transform:'rotate(-14deg)',pointerEvents:'none'}},
   h('path',{d:'M6 9H4.5a2.5 2.5 0 0 1 0-5H6'}),h('path',{d:'M18 9h1.5a2.5 2.5 0 0 0 0-5H18'}),h('path',{d:'M4 22h16'}),h('path',{d:'M18 2H6v7a6 6 0 0 0 12 0V2Z'})
  ),
@@ -391,7 +509,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
   h('path',{d:'M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z'}),
   h('path',{d:'m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z'})
  ),
- /* Top Header Row: Left Scots Logo + Right Gold Metallic Shield */
  h('div',{style:{display:'flex',alignItems:'flex-start',justifyContent:'space-between',position:'relative',zIndex:2,marginBottom:8}},
   h('div',{style:{display:'flex',alignItems:'center',gap:9,paddingTop:2}},
    h('svg',{xmlns:'http://www.w3.org/2000/svg',width:34,height:34,viewBox:'0 0 40 40',fill:'#58C4A6'},[[0,0,40,11],[0,0,12,24],[0,14,40,11],[28,14,12,26],[0,29,40,11]].map((r,i)=>h('rect',{key:i,x:r[0],y:r[1],width:r[2],height:r[3],rx:4}))),
@@ -400,7 +517,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
     h('div',null,'ENGLISH')
    )
   ),
-  /* Gold Shield Badge matching reference image */
   h('div',{style:{position:'relative',width:96,height:88,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}},
    h('svg',{xmlns:'http://www.w3.org/2000/svg',width:96,height:88,viewBox:'0 0 100 94',style:{position:'absolute',inset:0}},
     h('defs',null,
@@ -421,8 +537,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
    )
   )
  ),
-
- /* Glowing Concentric Arch Frame */
  h('div',{style:{
    position:'relative',
    zIndex:2,
@@ -443,8 +557,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
    h('div',{style:{textAlign:'center',fontSize:11,fontWeight:800,color:'#134C81',letterSpacing:.6,textTransform:'uppercase',marginBottom:10}},
     'BẢNG VÀNG CHĂM CHỈ · ',h('span',{style:{color:'#2B8A70'}},af)
    ),
-
-   /* Rank 1 Spotlight Card */
    tp[0]&&h('div',{style:{
      background:'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
      border:'1.5px solid #F59E0B',
@@ -466,8 +578,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
      rw[0]&&h('span',{style:{background:'#134C81',color:'#fff',borderRadius:999,padding:'2px 9px',fontSize:11,fontWeight:800}},'Thưởng $'+rw[0])
     )
    ),
-
-   /* Rank 2 & Rank 3 Side-by-Side Cards */
    tp.length>1&&h('div',{style:{display:'grid',gridTemplateColumns:tp[2]?'1fr 1fr':'1fr',gap:8}},
     [1,2].filter(i=>tp[i]).map(i=>{
      const r=tp[i],is2=i===1;
@@ -496,8 +606,6 @@ const hcard=(c,af,tp,rw,centerName,ref)=>h('div',{ref,style:{
    )
   )
  ),
-
- /* Bottom Slanted Mint-Teal & White Layered Ribbon Banner matching reference poster */
  h('div',{style:{position:'relative',zIndex:3,marginTop:-10,padding:'0 4px',transform:'rotate(-2deg)'}},
   h('div',{style:{
     background:'linear-gradient(90deg, #43AA8B 0%, #6ED3B7 100%)',
@@ -549,18 +657,25 @@ async function exportX(c,rows,tp,rw){
  const H={bg:'134C81',fg:'FFFFFF',b:1};
  let tc=3;ds.forEach(d=>tc+=cols(c,d).length);
  ws.getCell(1,1).value='BẢNG THEO DÕI BÀI TẬP VỀ NHÀ - '+c.name+(c.code?' ('+c.code+')':'')+' - Tháng '+c.month+'/'+c.year;
- ws.getCell(1,1).font={bold:true,size:14};ws.mergeCells(1,1,1,tc+1);
+ ws.getCell(1,1).font={bold:true,size:14};ws.mergeCells(1,1,1,tc+2);
  box(2,1,3,1,'STT',H);box(2,2,3,2,'Họ tên học sinh',H);
  let q=3;
  ds.forEach(d=>{const cs=cols(c,d);box(2,q,2,q+cs.length-1,lab(c,d),H);cs.forEach(([k,l],j)=>put(3,q+j,l,H));q+=cs.length});
- box(2,tc,3,tc,'Tổng bài Hoàn thành',H);box(2,tc+1,3,tc+1,'Tổng Star',H);
+ box(2,tc,3,tc,'Tổng bài Hoàn thành',H);box(2,tc+1,3,tc+1,'Tổng Star',H);box(2,tc+2,3,tc+2,'Ghi chú',H);
  rows.forEach((r,i)=>{const y=4+i;put(y,1,i+1);put(y,2,r.s.name);ws.getCell(y,2).alignment={vertical:'middle'};let p=3;
   ds.forEach(d=>cols(c,d).forEach(([k])=>{const v=c.v[dk(c,d)+'|'+r.s.id+'|'+k];v?put(y,p,SM[v].t,{bg:SM[v].x[0],fg:SM[v].x[1]}):put(y,p,'');p++}));
-  put(y,tc,r.d,{b:1});put(y,tc+1,r.t,{b:1,bg:'FFF2CC'})});
- let y=4+rows.length+1;ws.getCell(y,1).value='TOP 3 VINH DANH CUỐI THÁNG';ws.getCell(y,1).font={bold:true,size:12};y++;
+  put(y,tc,r.d,{b:1});put(y,tc+1,r.t,{b:1,bg:'FFF2CC'});put(y,tc+2,r.s.note||'');ws.getCell(y,tc+2).alignment={vertical:'middle',wrapText:true}});
+ /* Summary Completion Rate Footer Row in Excel */
+ const fy=4+rows.length;
+ box(fy,1,fy,2,'Tỷ lệ hoàn thành theo buổi',{bg:'EDF6FA',fg:'134C81',b:1});
+ let fp=3;
+ ds.forEach(d=>{const cs=cols(c,d),rt=dayRate(c,d);box(fy,fp,fy,fp+cs.length-1,rt.exp?rt.dn+'/'+rt.exp+' ('+rt.pct+'%)':'-',{bg:'EDF6FA',fg:'134C81',b:1});fp+=cs.length});
+ put(fy,tc,'',{bg:'EDF6FA'});put(fy,tc+1,'',{bg:'EDF6FA'});put(fy,tc+2,'',{bg:'EDF6FA'});
+
+ let y=fy+2;ws.getCell(y,1).value='TOP 3 VINH DANH CUỐI THÁNG';ws.getCell(y,1).font={bold:true,size:12};y++;
  ['Hạng','Họ tên','Star','Hoàn thành','Không làm','Thưởng ($)'].forEach((t,i)=>put(y,1+i,t,H));
  tp.forEach((r,i)=>{y++;[i+1,r.s.name,r.t,r.d,r.n,rw[i]||''].forEach((t,j)=>put(y,1+j,t,{b:j===1}))});
- ws.getColumn(1).width=6;ws.getColumn(2).width=28;for(let i=3;i<=tc+1;i++)ws.getColumn(i).width=15;
+ ws.getColumn(1).width=6;ws.getColumn(2).width=28;for(let i=3;i<=tc+1;i++)ws.getColumn(i).width=15;ws.getColumn(tc+2).width=24;
  ws.getRow(3).height=32;ws.views=[{state:'frozen',xSplit:2,ySplit:3}];
  ws.pageSetup={orientation:'landscape',fitToPage:true,fitToWidth:1,fitToHeight:0};
  const buf=await wb.xlsx.writeBuffer(),a=document.createElement('a');
@@ -573,10 +688,35 @@ function App(){
  const [S,setS]=useState(()=>{try{const j=JSON.parse(localStorage.getItem(KEY));if(j&&j.cls&&j.cls.length)return{...j,...migrate(j)}}catch(e){}const n=newCls(DAF);return{cls:[n],afs:[{id:DAF,name:'AF James'}],act:n.id,star:{...DSTAR},rw:['','','']}});
  const BKEY=KEY+'-base';
  const [imp,setImp]=useState(''),[cf,setCf]=useState(false),[msg,setMsg]=useState(''),[sync,setSync]=useState('load'),[ready,setReady]=useState(false),[mod,setMod]=useState(null),[mob,setMob]=useState(()=>window.matchMedia('(max-width:768px)').matches),[md,setMd]=useState(null),[pd,setPd]=useState(null),[q,setQ]=useState(''),[extraD,setExtraD]=useState('');
+ const [flt,setFlt]=useState('all');
+ const [undo,setUndo]=useState(null);
  const [zipTarget,setZipTarget]=useState(null);
- const zref=useRef(null),href=useRef(null),sref=useRef(null);
+ const zref=useRef(null),href=useRef(null),sref=useRef(null),undoTm=useRef(null);
  const initBase=()=>{try{const b=JSON.parse(localStorage.getItem(BKEY));if(b&&b.c)return b}catch(e){}return EB};
  const R=useRef({base:initBase(),busy:false,tm:0,rtm:0,S:null,lf:0,fail:0,again:0}).current;
+
+ /* 10-Second Undo Snapshot Helper */
+ const pushUndo=(prevS,label)=>{
+  clearTimeout(undoTm.current);
+  setUndo({prevS,label,sec:10});
+  undoTm.current=setInterval(()=>{
+   setUndo(u=>{
+    if(!u)return null;
+    if(u.sec<=1){clearInterval(undoTm.current);return null}
+    return{...u,sec:u.sec-1};
+   });
+  },1000);
+ };
+ const doUndo=()=>{
+  if(!undo)return;
+  clearInterval(undoTm.current);
+  const restored=undo.prevS;
+  setUndo(null);
+  setS(restored);
+  setMsg('Đã hoàn tác thao tác vừa thực hiện.');
+ };
+ useEffect(()=>()=>clearInterval(undoTm.current),[]);
+
  const saveBase=b=>{R.base=b;try{localStorage.setItem(BKEY,JSON.stringify(b))}catch(e){}};
  const dirty=()=>{if(!R.S)return false;const m=mine(R.S,R.base);return!!(m.cu.length||m.cd.length||m.au.length||m.ad.length||m.st||m.rc)};
  const tmo=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(Error('hết thời gian chờ')),ms))]);
@@ -615,18 +755,74 @@ function App(){
   return()=>{window.removeEventListener('online',onOn);window.removeEventListener('offline',onOff);window.removeEventListener('beforeunload',onUnload)};
  },[]);
  useEffect(()=>{const q=window.matchMedia('(max-width:768px)'),f=()=>setMob(q.matches);q.addEventListener?q.addEventListener('change',f):q.addListener(f);return()=>{q.removeEventListener?q.removeEventListener('change',f):q.removeListener(f)}},[]);
+
  const cur=S.cls.find(x=>x.id===S.act)||S.cls[0],VM=S.vm||{m:cur.month,y:cur.year},inM=x=>x.month===VM.m&&x.year===VM.y,
   A=S.afs.find(a=>a.id===S.afa)||S.afs.find(a=>a.id===cur.afId)||S.afs[0],vc=S.cls.filter(x=>inM(x)&&x.afId===A.id),found=vc.find(x=>x.id===S.act)||vc[0],has=!!found,
-  c=found||{id:'',name:'',code:'',month:VM.m,year:VM.y,pair:'36',students:[],v:{},x:{},bn:{},skip:[],add:[],afId:A.id};
+  c=found||{id:'',name:'',code:'',month:VM.m,year:VM.y,pair:'36',students:[],v:{},x:{},bn:{},skip:[],add:[],colNames:{...DEF_COL_NAMES},baseCols:[...DEF_BASE_COLS],afId:A.id};
  const set=p=>setS(s=>({...s,cls:s.cls.map(x=>x.id===c.id?{...x,...p}:x)}));
- const ds=days(c),rows=c.students.map(s=>({s,...stats(c,s,S.star)}));
+ const ds=days(c),rows=c.students.map((s,idx)=>({s,idx,...stats(c,s,S.star)}));
  const tp=[...rows].sort((a,b)=>b.t-a.t||b.d-a.d||a.n-b.n).slice(0,3).filter(r=>r.t>0);
+
+ /* Reference session (today/nearest or user-selected) */
+ const T0=new Date(),TD=new Date(T0.getFullYear(),T0.getMonth(),T0.getDate()).getTime();
+ const near=ds.reduce((b,d)=>{const x=Math.abs(new Date(c.year,c.month-1,d).getTime()-TD);return !b||x<b[1]?[d,x]:b},null);
+ const dsel=ds.includes(md)?md:(near?near[0]:null),di=ds.indexOf(dsel);
+
+ /* Quick Filter Evaluation against reference session dsel */
+ const matchFlt=(r,type)=>{
+  if(type==='all')return true;
+  if(type==='warn')return r.w>=2;
+  if(dsel===null)return true;
+  const cs=cols(c,dsel);
+  if(type==='ungraded')return cs.some(([k])=>!c.v[dk(c,dsel)+'|'+r.s.id+'|'+k]);
+  if(type==='missing')return cs.some(([k])=>{const v=c.v[dk(c,dsel)+'|'+r.s.id+'|'+k];return v==='part'||v==='miss'||v==='none'});
+  return true;
+ };
+ const fCounts={
+  all:rows.length,
+  ungraded:rows.filter(r=>matchFlt(r,'ungraded')).length,
+  missing:rows.filter(r=>matchFlt(r,'missing')).length,
+  warn:rows.filter(r=>matchFlt(r,'warn')).length
+ };
+ const vRows=rows.filter(r=>matchFlt(r,flt));
+
+ /* Bulk Actions with 10s Undo */
  const cyc=key=>{const o=['',...ST.map(s=>s.k)],nx=o[(o.indexOf(c.v[key]||'')+1)%o.length],v={...c.v};nx?v[key]=nx:delete v[key];set({v})};
- const fill=(d,k,val)=>{const v={...c.v};c.students.forEach(s=>{const key=dk(c,d)+'|'+s.id+'|'+k;val?v[key]=val:delete v[key]});set({v})};
- const fillMany=(d,ks,val)=>{const v={...c.v};ks.forEach(k=>c.students.forEach(s=>{const key=dk(c,d)+'|'+s.id+'|'+k;val?v[key]=val:delete v[key]}));set({v})};
+ const fill=(d,k,val)=>{
+  pushUndo(S,'Đã điền nhanh cột '+colName(k)+' ('+lab(c,d)+')');
+  const v={...c.v};c.students.forEach(s=>{const key=dk(c,d)+'|'+s.id+'|'+k;val?v[key]=val:delete v[key]});set({v});
+ };
+ const fillMany=(d,ks,val)=>{
+  pushUndo(S,'Đã điền nhanh cả buổi '+lab(c,d));
+  const v={...c.v};ks.forEach(k=>c.students.forEach(s=>{const key=dk(c,d)+'|'+s.id+'|'+k;val?v[key]=val:delete v[key]}));set({v});
+ };
+ const delStudent=st=>{
+  pushUndo(S,'Đã xóa học viên '+st.name);
+  set({students:c.students.filter(x=>x.id!==st.id)});
+ };
+ const saveStudentNote=(stId,noteText)=>{
+  set({students:c.students.map(x=>x.id===stId?{...x,note:noteText.trim()}:x)});
+ };
+
+ /* Flexible Columns per Class */
+ const setColName=(k,val)=>set({colNames:{...DEF_COL_NAMES,...(c.colNames||{}),[k]:val}});
+ const toggleBaseCol=k=>{
+  const curBase=new Set(getBaseCols(c));
+  if(curBase.has(k)){
+   if(curBase.size<=1){setMsg('Cần giữ lại ít nhất 1 cột bài tập mặc định cho lớp.');return}
+   curBase.delete(k);
+  }else curBase.add(k);
+  set({baseCols:COLS.map(([ck])=>ck).filter(ck=>curBase.has(ck))});
+ };
+ const applyColPreset=preset=>{
+  if(preset==='kids')set({colNames:{...DEF_COL_NAMES},baseCols:['rb','app']});
+  else if(preset==='teens')set({colNames:{rb:'Workbook',app:'Vocab / Grammar',vid:'Speaking',bt:'Writing'},baseCols:['rb','app']});
+  else if(preset==='test')set({colNames:{rb:'Bài kiểm tra',app:'Chữa bài',vid:'Speaking Test',bt:'Bổ trợ'},baseCols:['rb']});
+ };
+
  const tog=(d,k)=>{const o=c.x[dk(c,d)]||{};set({x:{...c.x,[dk(c,d)]:{...o,[k]:!o[k]}}})};
  const addCls=()=>{const n=newCls(A.id,VM.m,VM.y);setCf(false);setS(s=>({...s,cls:[...s.cls,n],act:n.id,afa:A.id,vm:VM}))};
- const delCls=()=>{if(!cf){setCf(true);return}setCf(false);setS(s=>{let l=s.cls.filter(x=>x.id!==c.id);if(!l.length)l=[newCls(A.id,VM.m,VM.y)];const nx=l.find(x=>inM(x)&&x.afId===A.id);return{...s,cls:l,act:(nx||l[0]).id}})};
+ const delCls=()=>{if(!cf){setCf(true);return}setCf(false);pushUndo(S,'Đã xóa lớp '+c.name);setS(s=>{let l=s.cls.filter(x=>x.id!==c.id);if(!l.length)l=[newCls(A.id,VM.m,VM.y)];const nx=l.find(x=>inM(x)&&x.afId===A.id);return{...s,cls:l,act:(nx||l[0]).id}})};
  const selAf=id=>{setCf(false);setS(s=>{const f=s.cls.find(x=>inM(x)&&x.afId===id);return{...s,afa:id,vm:VM,act:f?f.id:s.act}})};
  const goM=(m,y)=>{setCf(false);setS(s=>{const f=s.cls.find(x=>x.month===m&&x.year===y&&x.afId===A.id);return{...s,afa:A.id,vm:{m,y},act:f?f.id:s.act}})};
  const goTo=x=>{setCf(false);setS(s=>({...s,vm:{m:x.month,y:x.year},afa:x.afId,act:x.id}))};
@@ -636,6 +832,7 @@ function App(){
 
  /* Custom Session Hide (Holiday) / Add (Makeup) */
  const skipDay=d=>{
+  pushUndo(S,'Đã ẩn buổi học '+lab(c,d));
   const isAdd=(c.add||[]).includes(d);
   if(isAdd)set({add:(c.add||[]).filter(x=>x!==d)});
   else set({skip:[...new Set([...(c.skip||[]),d])]});
@@ -656,22 +853,64 @@ function App(){
  const qn=nz(q.trim()),sres=!qn?[]:[...S.cls.reduce((mp,x)=>{x.students.forEach(s=>{if(nz(s.name).includes(qn)){const k=nz(s.name)+'|'+x.afId+'|'+nz(x.code||x.name),sc=(inM(x)?2e6:1e6)+x.year*12+x.month,o=mp.get(k);if(!o||sc>o.sc)mp.set(k,{sc,s,x,af:(S.afs.find(a=>a.id===x.afId)||{}).name||''})}});return mp},new Map()).values()].sort((a,b)=>b.sc-a.sc).slice(0,8);
  const addImp=()=>{const ns=imp.split(/\r?\n/).map(l=>(l.split('\t').map(s=>s.trim()).filter(s=>s&&!/^\d+$/.test(s)).pop()||'').replace(/^\d+[.)\-\s]+/,'')).filter(Boolean);if(ns.length)set({students:[...c.students,...ns.map(n=>({id:uid(),name:n}))]});setImp('');setMod(null)};
  const doExport=async()=>{setMsg('');try{await exportX(c,rows,tp,S.rw);setMsg('Đã tải xuống tệp Excel thành công.')}catch(e){if(e&&e.code==='declined')return;setMsg('Không tải được file: '+((e&&(e.message||e.code))||'lỗi không rõ'))}};
+
+ /* JSON Backup & Restore */
+ const exportJson=()=>{
+  const payload={app:'ScotsEnglish-BTVN',version:2,exportedAt:new Date().toISOString(),cls:S.cls,afs:S.afs,star:S.star,rw:S.rw};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  const dStr=new Date().toISOString().slice(0,10);
+  a.href=URL.createObjectURL(blob);a.download='ScotsEnglish_Backup_'+dStr+'.json';
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  setMod(m=>m&&{...m,st:'Đã tải xuống tệp sao lưu dự phòng (.json) thành công!'});
+ };
+ const onJsonFile=e=>{
+  const f=e.target.files&&e.target.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=ev=>{
+   try{
+    const parsed=JSON.parse(ev.target.result);
+    if(!parsed||!Array.isArray(parsed.cls)||!parsed.cls.length)throw Error('File JSON không đúng định dạng dữ liệu Scots English.');
+    const m=migrate(parsed);
+    const stCnt=m.cls.reduce((n,x)=>n+(x.students||[]).length,0);
+    setMod(curM=>({...curM,preview:{data:m,clsCount:m.cls.length,stCount:stCnt,afCount:m.afs.length,date:parsed.exportedAt||''},st:''}));
+   }catch(err){
+    setMod(curM=>({...curM,preview:null,st:'Lỗi đọc file: '+(err.message||'JSON không hợp lệ')}));
+   }
+  };
+  rd.readAsText(f);
+ };
+ const restoreJson=preview=>{
+  if(!preview||!preview.data)return;
+  pushUndo(S,'Đã khôi phục dữ liệu từ file sao lưu .json');
+  const m=preview.data;
+  setS(s=>({...s,cls:m.cls,afs:m.afs,star:m.star,rw:m.rw||s.rw,act:m.cls[0].id,afa:m.afs[0].id,vm:{m:m.cls[0].month,y:m.cls[0].year}}));
+  setMod(null);
+  setMsg('Đã khôi phục dữ liệu từ bản sao lưu và đang đồng bộ lên Cloud...');
+ };
+
  const CH=({load:['Đang tải dữ liệu...','k0','clock'],saving:['Đang đồng bộ Cloud...','k1','clock'],offline:['Lưu nháp offline','k1','wifiOff'],saved:['Đã lưu lên Cloud','k2','check'],err:[R.lf?'Lỗi tải · Thử lại':'Lỗi lưu · Thử lại','k3','alert']})[sync];
 
  if(!ready)return h('div',{style:{padding:48,textAlign:'center',fontFamily:"'Plus Jakarta Sans',sans-serif",fontSize:16,fontWeight:700,color:'#134C81',display:'flex',alignItems:'center',justifyContent:'center',gap:8}},Ic('clock',18),'Đang tải dữ liệu hệ thống...');
 
  const F=(l,el)=>h('label',{className:'fl'},l,el);
  const YS=[...new Set([NOW.getFullYear()-1,NOW.getFullYear(),NOW.getFullYear()+1,NOW.getFullYear()+2,c.year])].sort();
- const s1={position:'sticky',left:0,zIndex:2,minWidth:44,width:44,background:'inherit'},s2={...s1,left:44,minWidth:176,textAlign:'left'};
- const colName=k=>COLS.find(x=>x[0]===k)[1];
+ const s1={position:'sticky',left:0,zIndex:2,minWidth:44,width:44,background:'inherit'},s2={...s1,left:44,minWidth:220,textAlign:'left'};
+ const colName=k=>(getColMeta(c).find(x=>x[0]===k)||[k,k])[1];
  const Logo=h('svg',{xmlns:'http://www.w3.org/2000/svg',width:34,height:34,viewBox:'0 0 40 40',fill:'#58B99F'},[[0,0,40,11],[0,0,12,24],[0,14,40,11],[28,14,12,26],[0,29,40,11]].map((r,i)=>h('rect',{key:i,x:r[0],y:r[1],width:r[2],height:r[3],rx:4})));
 
  const Modal=(icName,t,body)=>h('div',{className:'ov',onClick:e=>{if(e.target===e.currentTarget)setMod(null)}},h('div',{className:'mo'},h('div',{className:'flex items-center justify-between mb-3'},h('h3',{className:'hd2'},Ic(icName,18),t),h('button',{className:'x',onClick:()=>setMod(null)},Ic('x',16))),body));
 
- const modal=!mod||['afadd','afren','afdel','month','zalo','honor','zip'].includes(mod.t)?null:Modal(
+ const modal=!mod||['afadd','afren','afdel','month','zalo','honor','zip','pmsg','snote','backup'].includes(mod.t)?null:Modal(
   mod.t==='imp'?'users':mod.t==='star'?'sliders':'bolt',
   mod.t==='imp'?'Thêm nhanh & quản lý học sinh':mod.t==='fillday'?'Điền nhanh cả buổi · '+lab(c,mod.d):mod.t==='star'?'Cấu hình quy đổi Star':'Điền nhanh · '+colName(mod.k)+' · '+lab(c,mod.d),
-  mod.t==='imp'?h('div',{className:'flex flex-col gap-3'},h('textarea',{className:'i',rows:7,value:imp,placeholder:'Dán danh sách tên từ Excel/Word, mỗi dòng một học sinh',onChange:e=>setImp(e.target.value)}),h('button',{className:'bt',onClick:addImp},Ic('plus',15),'Thêm vào danh sách'),h('div',{className:'text-xs',style:{fontWeight:700,color:'#5B748E'}},'Danh sách hiện tại ('+c.students.length+' học sinh)'),h('div',{className:'flex flex-col gap-1',style:{maxHeight:200,overflow:'auto'}},c.students.map((s,i)=>h('div',{key:s.id,className:'flex items-center justify-between gap-2 text-sm py-1 border-b border-slate-100'},h('span',null,(i+1)+'. '+s.name),h('button',{className:'bt sm',style:{background:pd===s.id?'#EF4D31':'#F1F5F9',borderColor:pd===s.id?'#EF4D31':'#E2E8F0',color:pd===s.id?'#fff':'#475569'},onClick:()=>{if(pd===s.id){set({students:c.students.filter(x=>x.id!==s.id)});setPd(null)}else setPd(s.id)}},Ic('trash',13),pd===s.id?'Xác nhận xóa':'Xóa'))))):
+  mod.t==='imp'?h('div',{className:'flex flex-col gap-3'},h('textarea',{className:'i',rows:6,value:imp,placeholder:'Dán danh sách tên từ Excel/Word, mỗi dòng một học sinh',onChange:e=>setImp(e.target.value)}),h('button',{className:'bt',onClick:addImp},Ic('plus',15),'Thêm vào danh sách'),h('div',{className:'text-xs',style:{fontWeight:700,color:'#5B748E'}},'Danh sách hiện tại ('+c.students.length+' học sinh)'),h('div',{className:'flex flex-col gap-1',style:{maxHeight:210,overflow:'auto'}},c.students.map((s,i)=>h('div',{key:s.id,className:'flex items-center justify-between gap-2 text-sm py-1.5 border-b border-slate-100'},
+   h('div',{style:{minWidth:0}},h('div',{style:{fontWeight:700}},(i+1)+'. '+s.name),s.note&&h('div',{style:{fontSize:11,color:'#92400E'}},'Ghi chú: '+s.note)),
+   h('div',{className:'flex items-center gap-1.5 shrink-0'},
+    h('button',{className:'bt g sm',style:{padding:'3px 9px',fontSize:11.5},onClick:()=>setMod({t:'snote',st:s,val:s.note||''})},Ic('note',12),'Ghi chú'),
+    h('button',{className:'bt sm',style:{padding:'3px 9px',fontSize:11.5,background:pd===s.id?'#EF4D31':'#F1F5F9',borderColor:pd===s.id?'#EF4D31':'#E2E8F0',color:pd===s.id?'#fff':'#475569'},onClick:()=>{if(pd===s.id){delStudent(s);setPd(null)}else setPd(s.id)}},Ic('trash',12),pd===s.id?'Xác nhận':'Xóa')
+   )
+  )))):
   mod.t==='star'?h('div',{className:'flex flex-col gap-2'},ST.map(s=>h('label',{key:s.k,className:'flex items-center justify-between gap-3 py-1'},h('span',{className:'pill '+s.c},s.t),h('span',{className:'flex items-center gap-1.5 font-bold text-sm'},'+',h('input',{type:'number',step:'0.5',className:'i w-20 text-center',value:S.star[s.k],onChange:e=>setS(x=>({...x,star:{...x.star,[s.k]:e.target.value}}))}),'Star'))),h('div',{className:'text-xs text-slate-500 mt-1'},'Số Star cộng cho mỗi ô bài tập theo trạng thái hoàn thành.')):
   mod.t==='fillday'?h('div',{className:'flex flex-col gap-2'},h('div',{className:'text-xs text-slate-500'},'Chọn cột cần điền (áp dụng cho cả lớp '+c.students.length+' học sinh):'),h('div',{className:'flex flex-wrap gap-2'},cols(c,mod.d).map(([k,l])=>{const on=mod.sel.includes(k);return h('button',{key:k,className:'mtg2'+(on?' on':''),onClick:()=>setMod({...mod,sel:on?mod.sel.filter(x=>x!==k):[...mod.sel,k]})},on&&Ic('check',14),l)})),ST.map(s=>h('button',{key:s.k,className:'fillb',disabled:!mod.sel.length,onClick:()=>{fillMany(mod.d,mod.sel,s.k);setMod(null)}},h('span',{className:'pill '+s.c},s.t))),h('button',{className:'bt g',disabled:!mod.sel.length,onClick:()=>{fillMany(mod.d,mod.sel,'');setMod(null)}},'Xóa trạng thái các cột đã chọn')):
   h('div',{className:'flex flex-col gap-2'},h('div',{className:'text-xs text-slate-500'},'Áp dụng cho cả lớp ('+c.students.length+' học sinh). Sau đó chỉ cần sửa lại vài bạn.'),ST.map(s=>h('button',{key:s.k,className:'fillb',onClick:()=>{fill(mod.d,mod.k,s.k);setMod(null)}},h('span',{className:'pill '+s.c},s.t))),h('button',{className:'bt g',onClick:()=>{fill(mod.d,mod.k,'');setMod(null)}},'Xóa trạng thái cả cột'))
@@ -694,6 +933,7 @@ function App(){
   )})):h('div',{className:'text-sm',style:{color:'#5B748E',padding:'6px 2px'}},'Chưa có điểm Star nào trong tháng này. Hãy chấm bài tập để hiển thị bảng vinh danh.')
  );
 
+ const baseColSet=new Set(getBaseCols(c));
  const info=h('details',{className:'card info-card',open:c.students.length===0},
   h('summary',{className:'sum-hd'},
    h('div',{className:'flex items-center gap-2 flex-wrap'},
@@ -703,7 +943,7 @@ function App(){
     h('span',{className:'mpill'},PAIR_LB[c.pair]||'Thứ 3 - Thứ 6'),
     h('span',{className:'mpill'},ds.length+' buổi · '+c.students.length+' học sinh')
    ),
-   h('span',{style:{fontSize:12,color:'#5B748E',fontWeight:600}},'Thiết lập lớp')
+   h('span',{style:{fontSize:12,color:'#5B748E',fontWeight:600}},'Thiết lập lớp & Cột bài tập')
   ),
   h('div',{className:'flex flex-wrap items-end gap-3 mt-3 pt-3 border-t border-slate-100'},
    F('Tên lớp',h('input',{className:'i',value:c.name,onChange:e=>set({name:e.target.value})})),
@@ -720,6 +960,31 @@ function App(){
    )),
    h('button',{className:'bt sm',style:{marginLeft:'auto',background:cf?'#EF4D31':'#fff',borderColor:cf?'#EF4D31':'#DCE5F0',color:cf?'#fff':'#EF4D31'},onClick:delCls},Ic('trash',14),cf?'Bấm lần nữa để xóa':'Xóa lớp')
   ),
+
+  /* Feature 5: Flexible Homework Columns per Class */
+  h('div',{className:'sch-box'},
+   h('div',{className:'flex items-center justify-between flex-wrap gap-2'},
+    h('span',{style:{fontSize:12,fontWeight:700,color:'#5B748E'}},'Tùy chỉnh tên 4 đầu mục bài tập cho lớp này (tích chọn để hiện mặc định mọi buổi):'),
+    h('div',{className:'inline-flex items-center gap-1.5 flex-wrap'},
+     h('button',{className:'bt g sm',style:{padding:'3px 10px',fontSize:11.5},onClick:()=>applyColPreset('kids')},'Mẫu Kids / Phonics'),
+     h('button',{className:'bt g sm',style:{padding:'3px 10px',fontSize:11.5},onClick:()=>applyColPreset('teens')},'Mẫu Teens / IELTS'),
+     h('button',{className:'bt g sm',style:{padding:'3px 10px',fontSize:11.5},onClick:()=>applyColPreset('test')},'Mẫu Kiểm tra (1 cột)')
+    )
+   ),
+   h('div',{className:'col-grid'},
+    getColMeta(c).map(([k,l],idx)=>h('div',{key:k,className:'col-item'},
+     h('div',{className:'flex items-center justify-between gap-2'},
+      h('span',{style:{fontSize:11,fontWeight:800,color:'#134C81'}},'Cột '+(idx+1)),
+      h('label',{className:'col-chk'},
+       h('input',{type:'checkbox',checked:baseColSet.has(k),onChange:()=>toggleBaseCol(k)}),
+       baseColSet.has(k)?'Hiện mặc định':'Bật theo buổi'
+      )
+     ),
+     h('input',{className:'i',style:{padding:'4px 8px',fontSize:12.5},value:(c.colNames||{})[k]!==undefined?(c.colNames||{})[k]:DEF_COL_NAMES[k],placeholder:DEF_COL_NAMES[k],onChange:e=>setColName(k,e.target.value)})
+    ))
+   )
+  ),
+
   /* Custom Session Management: Hide Holiday / Add Makeup Session */
   h('div',{className:'sch-box'},
    h('div',{className:'flex items-center justify-between flex-wrap gap-2'},
@@ -745,6 +1010,35 @@ function App(){
   )
  );
 
+ /* Feature 2A: Quick Status Filter Bar */
+ const fltBar=c.students.length>0&&h('div',{className:'fltbar'},
+  h('div',{className:'flt-pills'},
+   h('span',{style:{fontSize:12,fontWeight:700,color:'#5B748E',display:'inline-flex',alignItems:'center',gap:4,marginRight:2}},Ic('filter',13),'Lọc nhanh:'),
+   [
+    ['all','Tất cả',fCounts.all,''],
+    ['ungraded','Chưa chấm xong',fCounts.ungraded,''],
+    ['missing','Thiếu / Không làm',fCounts.missing,''],
+    ['warn','Cảnh báo ≥2 buổi liền',fCounts.warn,'warn']
+   ].map(([k,label,cnt,cls])=>h('button',{key:k,className:'fchip'+(cls?' '+cls:'')+(flt===k?' on':''),onClick:()=>setFlt(k)},
+    label,h('span',{className:'fcnt'},cnt)
+   ))
+  ),
+  dsel!==null&&h('div',{className:'inline-flex items-center gap-1.5 text-xs',style:{color:'#5B748E',fontWeight:700}},
+   h('span',null,'Buổi đối chiếu:'),
+   h('select',{className:'i',style:{padding:'3px 8px',fontSize:12,color:'#134C81'},value:dsel,onChange:e=>setMd(+e.target.value)},
+    ds.map(d=>h('option',{key:d,value:d},lab(c,d)))
+   )
+  )
+ );
+
+ const toggleCols=getToggleCols(c);
+ /* Class-wide Completion Summary for Footer */
+ const allDayRates=ds.map(d=>dayRate(c,d));
+ const totExpAll=allDayRates.reduce((a,b)=>a+b.exp,0);
+ const totDnAll=allDayRates.reduce((a,b)=>a+b.dn,0);
+ const avgPctAll=totExpAll?Math.round((totDnAll/totExpAll)*100):0;
+ const sumStarsAll=rows.reduce((a,b)=>a+b.t,0);
+
  const tbl=h('div',{className:'tw'},h('table',null,
   h('thead',null,
    h('tr',null,
@@ -752,7 +1046,7 @@ function App(){
     h('th',{rowSpan:2,className:'th1 nm',style:{...s2,zIndex:4,background:'#134C81',textAlign:'center'}},'Họ tên học sinh'),
     ds.map(d=>h('th',{key:d,colSpan:cols(c,d).length,className:'th1'},
      h('div',{style:{letterSpacing:.3}},lab(c,d)),
-     h('div',{className:'flex gap-1 justify-center'},[['vid','Video'],['bt','Bổ trợ']].map(([k,t])=>{const on=(c.x[dk(c,d)]||{})[k];return h('button',{key:k,className:'tg'+(on?' on':''),onClick:()=>tog(d,k)},on?Ic('check',11):Ic('plus',11),t)})),
+     toggleCols.length>0&&h('div',{className:'flex gap-1 justify-center flex-wrap'},toggleCols.map(([k,l])=>{const on=(c.x[dk(c,d)]||{})[k];return h('button',{key:k,className:'tg'+(on?' on':''),onClick:()=>tog(d,k)},on?Ic('check',11):Ic('plus',11),shortCol(l))})),
      h('input',{className:'bn-in',placeholder:'Nội dung BTVN...',value:(c.bn||{})[dk(c,d)]||'',onChange:e=>setBn(d,e.target.value)})
     )),
     h('th',{rowSpan:2,className:'th3'},'Hoàn thành'),
@@ -760,23 +1054,48 @@ function App(){
    ),
    h('tr',null,ds.flatMap(d=>cols(c,d).map(([k,l])=>h('th',{key:d+k,className:'th2'},h('div',{className:'flex items-center justify-center gap-1.5'},h('span',null,l),h('button',{className:'fq',title:'Điền nhanh cả cột',onClick:()=>setMod({t:'fill',d,k})},Ic('bolt',11),'Điền nhanh'))))))
   ),
-  h('tbody',null,rows.map((r,i)=>h('tr',{key:r.s.id},
-   h('td',{style:{...s1,color:'#5B748E',fontWeight:700}},i+1),
-   h('td',{style:s2,className:'nm'},
-    h('span',{style:{fontWeight:700,color:'#102A43'}},r.s.name),
-    r.w>=2&&h('span',{className:'wn',title:'Có '+r.w+' buổi liên tiếp Không làm'},Ic('alert',11),r.w+' buổi liền'),
-    h('button',{title:'Xóa học sinh',className:'dx',onClick:()=>set({students:c.students.filter(x=>x.id!==r.s.id)})},Ic('x',13))
-   ),
-   ds.flatMap(d=>cols(c,d).map(([k])=>{const key=dk(c,d)+'|'+r.s.id+'|'+k,v=c.v[key];return h('td',{key,style:{padding:0}},h('button',{className:'cell',onClick:()=>cyc(key)},v?h('span',{className:'pill '+SM[v].c},SM[v].t):h('span',{className:'e'},'·')))})),
-   h('td',{className:'tot'},r.d),
-   h('td',{className:'tots'},r.t)
-  )))
+  h('tbody',null,
+   vRows.length?vRows.map(r=>h('tr',{key:r.s.id},
+    h('td',{style:{...s1,color:'#5B748E',fontWeight:700}},r.idx+1),
+    h('td',{style:s2,className:'nm'},
+     h('div',{className:'nm-box'},
+      h('div',{className:'nm-left'},
+       h('div',{className:'nm-top'},
+        h('span',{style:{fontWeight:700,color:'#102A43'}},r.s.name),
+        r.w>=2&&h('button',{className:'wn',title:'Bấm để gửi tin nhắc phụ huynh ('+r.w+' buổi liên tiếp Không làm)',onClick:()=>setMod({t:'pmsg',r,d:dsel||ds[ds.length-1],tone:'urgent',st:''})},Ic('alert',11),r.w+' buổi liền')
+       ),
+       r.s.note&&h('div',{className:'nm-note-tag',title:r.s.note},'📌 '+r.s.note)
+      ),
+      h('div',{className:'nm-acts'},
+       ds.length>0&&h('button',{title:'Nhắn tin nhắc nhở 1-1 cho phụ huynh',className:'icb z11',onClick:()=>setMod({t:'pmsg',r,d:dsel||ds[ds.length-1],tone:'auto',st:''})},Ic('msg',13)),
+       h('button',{title:r.s.note?'Sửa ghi chú: '+r.s.note:'Thêm ghi chú riêng học viên',className:'icb nt'+(r.s.note?' has':''),onClick:()=>setMod({t:'snote',st:r.s,val:r.s.note||''})},Ic('note',13)),
+       h('button',{title:'Xóa học sinh',className:'dx',onClick:()=>delStudent(r.s)},Ic('x',13))
+      )
+     )
+    ),
+    ds.flatMap(d=>cols(c,d).map(([k])=>{const key=dk(c,d)+'|'+r.s.id+'|'+k,v=c.v[key];return h('td',{key,style:{padding:0}},h('button',{className:'cell',onClick:()=>cyc(key)},v?h('span',{className:'pill '+SM[v].c},SM[v].t):h('span',{className:'e'},'·')))})),
+    h('td',{className:'tot'},r.d),
+    h('td',{className:'tots'},r.t)
+   )):h('tr',null,h('td',{colSpan:4+ds.reduce((n,d)=>n+cols(c,d).length,0),style:{padding:18,color:'#5B748E',fontWeight:600}},'Không có học viên nào khớp với bộ lọc hiện tại.'))
+  ),
+  /* Feature 2B: Session Completion Rate Footer Row */
+  c.students.length>0&&ds.length>0&&h('tfoot',null,
+   h('tr',null,
+    h('td',{colSpan:2,style:{position:'sticky',left:0,zIndex:4,background:'#E8F3F8',textAlign:'left',paddingLeft:12}},'Tỷ lệ hoàn thành theo buổi'),
+    ds.map((d,idx)=>{
+     const rt=allDayRates[idx];
+     return h('td',{key:d,colSpan:cols(c,d).length,style:{background:'#F1F6FB'}},
+      rt.exp?h('span',{className:'rp '+rt.cls},rt.dn+'/'+rt.exp+' · '+rt.pct+'%'):h('span',{className:'rp rp-na'},'Chưa có bài')
+     );
+    }),
+    h('td',{style:{background:'#E8F3F8'}},totExpAll?avgPctAll+'%':'-'),
+    h('td',{style:{background:'#ECFDF5',color:'#047857'}},'★ '+sumStarsAll)
+   )
+  )
  ));
 
  const WD=['Chủ Nhật','Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7'];
- const T0=new Date(),TD=new Date(T0.getFullYear(),T0.getMonth(),T0.getDate()).getTime();
- const near=ds.reduce((b,d)=>{const x=Math.abs(new Date(c.year,c.month-1,d).getTime()-TD);return !b||x<b[1]?[d,x]:b},null);
- const dsel=ds.includes(md)?md:(near?near[0]:null),di=ds.indexOf(dsel);
+ const mRate=dsel!==null?dayRate(c,dsel):null;
 
  const mview=dsel===null?null:(()=>{const cs=cols(c,dsel),n='n'+cs.length;return h('div',{className:'mview'},
   h('div',{className:'mbar'},
@@ -790,19 +1109,28 @@ function App(){
     h('button',{className:'bt t sm',style:{height:42},onClick:()=>setMod({t:'zalo',d:dsel})},Ic('image',15),'Báo cáo')
    ),
    h('div',{className:'mbr'},
-    [['vid','Video'],['bt','Bổ trợ']].map(([k,t])=>{const on=(c.x[dk(c,dsel)]||{})[k];return h('button',{key:k,className:'mtg'+(on?' on':''),onClick:()=>tog(dsel,k)},on?Ic('check',13):Ic('plus',13),t)}),
+    toggleCols.map(([k,l])=>{const on=(c.x[dk(c,dsel)]||{})[k];return h('button',{key:k,className:'mtg'+(on?' on':''),onClick:()=>tog(dsel,k)},on?Ic('check',13):Ic('plus',13),shortCol(l))}),
     h('button',{className:'mfq',onClick:()=>setMod({t:'fillday',d:dsel,sel:cs.map(x=>x[0])})},Ic('bolt',14),'Điền nhanh cả buổi')
    ),
-   h('div',{className:'mrow mhd',style:{'--n':cs.length}},h('div',null,'Họ tên'),cs.map(([k,l])=>h('div',{key:k},l)))
+   mRate&&c.students.length>0&&h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',background:'#F4F8FC',borderRadius:10,padding:'5px 10px',fontSize:12,fontWeight:700,color:'#134C81'}},
+    h('span',null,'Tỷ lệ hoàn thành buổi '+lab(c,dsel)+':'),
+    h('span',{className:'rp '+mRate.cls},mRate.exp?mRate.dn+'/'+mRate.exp+' bài · '+mRate.pct+'%':'Chưa có bài')
+   ),
+   h('div',{className:'mrow mhd',style:{'--n':cs.length}},h('div',null,'Họ tên'),cs.map(([k,l])=>h('div',{key:k},shortCol(l))))
   ),
-  h('div',{className:'ml '+n},rows.map((r,i)=>h('div',{key:r.s.id,className:'mrow',style:{'--n':cs.length}},
+  h('div',{className:'ml '+n},vRows.length?vRows.map(r=>h('div',{key:r.s.id,className:'mrow',style:{'--n':cs.length}},
    h('div',{className:'mnm'},
-    h('div',{className:'mn1'},(i+1)+'. '+r.s.name),
+    h('div',{className:'mn1'},(r.idx+1)+'. '+r.s.name),
     h('div',{className:'mn2'},h('span',{className:'inline-flex items-center gap-0.5',style:{color:'#B45309',fontWeight:700}},Ic('star',11),r.t),h('span',null,'·'),h('span',null,'Đạt '+r.d)),
-    r.w>=2&&h('div',null,h('span',{className:'wn',style:{marginLeft:0,marginTop:3}},Ic('alert',10),r.w+' buổi liền'))
+    r.s.note&&h('div',{className:'nm-note-tag',style:{maxWidth:'100%'}},'📌 '+r.s.note),
+    h('div',{className:'macts'},
+     h('button',{title:'Nhắn tin 1-1 phụ huynh',className:'icb z11',onClick:()=>setMod({t:'pmsg',r,d:dsel,tone:'auto',st:''})},Ic('msg',12)),
+     h('button',{title:'Ghi chú học viên',className:'icb nt'+(r.s.note?' has':''),onClick:()=>setMod({t:'snote',st:r.s,val:r.s.note||''})},Ic('note',12)),
+     r.w>=2&&h('button',{className:'wn',style:{marginLeft:0},onClick:()=>setMod({t:'pmsg',r,d:dsel,tone:'urgent',st:''})},Ic('alert',10),r.w+' buổi liền')
+    )
    ),
    cs.map(([k])=>{const key=dk(c,dsel)+'|'+r.s.id+'|'+k,v=c.v[key];return h('button',{key:k,className:'mcell',onClick:()=>cyc(key)},v?h('span',{className:'pill '+SM[v].c},SM[v].t):h('span',{className:'e'},Ic('plus',18)))})
-  )))
+  )):h('div',{style:{padding:18,textAlign:'center',fontSize:13,color:'#5B748E',fontWeight:600}},'Không có học viên nào khớp với bộ lọc hiện tại.'))
  )})();
 
  const zst=x=>setMod(m=>m&&{...m,st:x});
@@ -860,10 +1188,70 @@ function App(){
   }
  };
 
- const modal2=!mod||!['afadd','afren','afdel','month','zalo','honor','zip'].includes(mod.t)?null:(()=>{const nm=(mod.v||'').trim(),others=S.afs.filter(a=>a.id!==A.id),nIn=S.cls.filter(x=>inM(x)).length,nSt=S.cls.filter(inM).reduce((n,x)=>n+x.students.length,0);
+ const modal2=!mod||!['afadd','afren','afdel','month','zalo','honor','zip','pmsg','snote','backup'].includes(mod.t)?null:(()=>{const nm=(mod.v||'').trim(),others=S.afs.filter(a=>a.id!==A.id),nIn=S.cls.filter(x=>inM(x)).length,nSt=S.cls.filter(inM).reduce((n,x)=>n+x.students.length,0);
   if(mod.t==='afadd'||mod.t==='afren')return Modal(mod.t==='afadd'?'plus':'edit',mod.t==='afadd'?'Thêm AF phụ trách':'Đổi tên AF',h('div',{className:'flex flex-col gap-3'},h('input',{className:'i',autoFocus:true,placeholder:'Tên AF, ví dụ: AF James',value:mod.v||'',onChange:e=>setMod({...mod,v:e.target.value})}),h('button',{className:'bt',disabled:!nm,onClick:()=>{if(mod.t==='afadd'){const id='af-'+uid();setS(s=>({...s,afs:[...s.afs,{id,name:nm}],afa:id,vm:VM}))}else setS(s=>({...s,afs:s.afs.map(a=>a.id===A.id?{...a,name:nm}:a)}));setMod(null)}},mod.t==='afadd'?'Thêm AF':'Lưu thay đổi')));
   if(mod.t==='afdel'){const n=S.cls.filter(x=>x.afId===A.id).length,to=mod.to||(others[0]||{}).id;return Modal('trash','Xóa AF phụ trách',!others.length?h('div',{className:'flex flex-col gap-3'},h('div',{className:'text-sm text-slate-600'},'Cần giữ lại ít nhất 1 AF trong hệ thống.'),h('button',{className:'bt g',onClick:()=>setMod(null)},'Đóng')):h('div',{className:'flex flex-col gap-3'},h('div',{className:'text-sm text-slate-600'},'Xóa “'+A.name+'”? AF này đang quản lý '+n+' bản ghi lớp. Toàn bộ lớp và học sinh sẽ được chuyển sang AF bên dưới.'),F('Chuyển các lớp sang',h('select',{className:'i',value:to,onChange:e=>setMod({...mod,to:e.target.value})},others.map(a=>h('option',{key:a.id,value:a.id},a.name)))),h('button',{className:'bt o',onClick:()=>{setS(s=>({...s,afs:s.afs.filter(a=>a.id!==A.id),cls:s.cls.map(x=>x.afId===A.id?{...x,afId:to}:x),afa:to,vm:VM}));setMod(null)}},'Xác nhận xóa AF'),h('button',{className:'bt g',onClick:()=>setMod(null)},'Hủy')))}
   if(mod.t==='month')return Modal('cal','Chuyển sang tháng mới',h('div',{className:'flex flex-col gap-3'},h('div',{className:'text-sm text-slate-600'},'Sao chép '+nIn+' lớp ('+nSt+' học sinh, tất cả AF) của tháng '+VM.m+'/'+VM.y+' sang tháng '+nxt.m+'/'+nxt.y+' với bảng chấm bài trống mới. Dữ liệu tháng '+VM.m+'/'+VM.y+' vẫn được lưu giữ để tra cứu lại.'),h('button',{className:'bt',disabled:!nIn,onClick:newMonth},'Khởi tạo tháng '+nxt.m+'/'+nxt.y),h('button',{className:'bt g',onClick:()=>setMod(null)},'Hủy')));
+
+  /* Feature 1: 1-1 Personalized Parent Reminder Modal */
+  if(mod.t==='pmsg'){
+   const r=rows.find(x=>x.s.id===mod.r.s.id)||mod.r;
+   const pd=ds.includes(mod.d)?mod.d:ds[0];
+   const generated=pmsg(c,A.name,r,pd,mod.tone||'auto');
+   const ptx=mod.txt!==undefined?mod.txt:generated;
+   return Modal('msg','Nhắn tin riêng 1-1 · '+r.s.name,h('div',{className:'flex flex-col gap-3'},
+    h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',background:'#F4F8FC',borderRadius:12,padding:'8px 12px',fontSize:12.5}},
+     h('span',{style:{fontWeight:700,color:'#134C81'}},'Lớp '+c.name+(c.code?' ('+c.code+')':'')),
+     h('span',{style:{fontWeight:800,color:'#B45309'}},'★ '+r.t+' Star')
+    ),
+    r.s.note&&h('div',{style:{fontSize:12,color:'#92400E',background:'#FFFBEB',border:'1px solid #FDE68A',borderRadius:10,padding:'6px 10px',fontWeight:600}},'📌 Ghi chú học viên: '+r.s.note),
+    F('Chọn buổi học đối chiếu',h('select',{className:'i',value:pd,onChange:e=>setMod({...mod,d:+e.target.value,txt:undefined,st:''})},ds.map(d=>h('option',{key:d,value:d},WDN[new Date(c.year,c.month-1,d).getDay()]+' · '+lab(c,d))))),
+    h('div',{className:'flex flex-wrap gap-1.5'},
+     [['auto','Tự động theo trạng thái'],['remind','Nhắc nhẹ nhàng'],['urgent','Nhắc khẩn (thiếu nhiều buổi)'],['praise','Khen ngợi hoàn thành']].map(([tk,tl])=>h('button',{key:tk,className:'fchip'+((mod.tone||'auto')===tk?' on':''),onClick:()=>setMod({...mod,tone:tk,txt:undefined,st:''})},tl))
+    ),
+    F('Nội dung tin nhắn gửi Zalo phụ huynh (có thể sửa trực tiếp)',h('textarea',{className:'i',rows:9,value:ptx,onChange:e=>setMod({...mod,txt:e.target.value})})),
+    h('button',{className:'bt t',onClick:()=>copyZ(ptx)},Ic('copy',15),'Copy tin nhắn gửi phụ huynh'),
+    mod.st&&h('div',{className:'text-xs',style:{fontWeight:700,color:'#1D6F58'}},mod.st)
+   ));
+  }
+
+  /* Feature 5B: Student Individual Note Modal */
+  if(mod.t==='snote'){
+   const st=mod.st;
+   const presets=['Mới nhập học giữa tháng','Xin nghỉ phép có đơn','Học bù buổi khác','Bảo lưu / Chuyển lớp'];
+   return Modal('note','Ghi chú riêng · '+st.name,h('div',{className:'flex flex-col gap-3'},
+    h('div',{className:'text-xs text-slate-500'},'Ghi chú hiển thị cạnh tên học viên và tự động đưa vào cột Ghi chú khi xuất Excel.'),
+    h('div',{className:'flex flex-wrap gap-1.5'},presets.map(pr=>h('button',{key:pr,className:'fchip',onClick:()=>setMod({...mod,val:pr})},pr))),
+    h('input',{className:'i',autoFocus:true,placeholder:'Nhập ghi chú riêng cho học viên...',value:mod.val||'',onChange:e=>setMod({...mod,val:e.target.value})}),
+    h('div',{className:'flex gap-2'},
+     h('button',{className:'bt',style:{flex:1},onClick:()=>{saveStudentNote(st.id,mod.val||'');setMod(null)}},Ic('check',15),'Lưu ghi chú'),
+     st.note&&h('button',{className:'bt g',onClick:()=>{saveStudentNote(st.id,'');setMod(null)}},'Xóa ghi chú')
+    )
+   ));
+  }
+
+  /* Feature 3B: JSON Backup & Restore Modal */
+  if(mod.t==='backup'){
+   const totCls=S.cls.length,totSt=S.cls.reduce((n,x)=>n+(x.students||[]).length,0);
+   return Modal('db','Sao lưu & Khôi phục dữ liệu (.json)',h('div',{className:'flex flex-col gap-3'},
+    h('div',{style:{background:'#F4F8FC',border:'1px solid #DCE5F0',borderRadius:14,padding:'10px 12px',fontSize:12.5,color:'#334E68',lineHeight:1.55}},
+     'Dữ liệu hiện tại trên hệ thống: ',h('strong',{style:{color:'#134C81'}},S.afs.length+' AF · '+totCls+' lớp · '+totSt+' học viên'),'. Tải file ',h('strong',null,'.json'),' về máy định kỳ để lưu trữ an toàn.'
+    ),
+    h('button',{className:'bt',onClick:exportJson},Ic('download',15),'Tải bản sao lưu dự phòng (.json)'),
+    h('div',{style:{borderTop:'1px dashed #DCE5F0',paddingTop:12,display:'flex',flexDirection:'column',gap:8}},
+     h('div',{style:{fontSize:12.5,fontWeight:700,color:'#134C81'}},'Khôi phục từ tệp sao lưu (.json):'),
+     h('input',{type:'file',accept:'.json,application/json',className:'i',style:{fontSize:12.5},onChange:onJsonFile}),
+     mod.preview&&h('div',{style:{background:'#FFFBEB',border:'1px solid #FDE68A',borderRadius:12,padding:'9px 12px',fontSize:12,color:'#92400E'}},
+      h('div',{style:{fontWeight:700}},'Đã đọc tệp sao lưu thành công:'),
+      h('div',null,'• Quy mô: '+mod.preview.afCount+' AF · '+mod.preview.clsCount+' lớp · '+mod.preview.stCount+' học viên'),
+      mod.preview.date&&h('div',null,'• Thời điểm sao lưu: '+mod.preview.date.replace('T',' ').slice(0,16)),
+      h('button',{className:'bt o sm',style:{marginTop:8,width:'100%'},onClick:()=>restoreJson(mod.preview)},Ic('upload',14),'Xác nhận khôi phục dữ liệu này')
+     )
+    ),
+    mod.st&&h('div',{className:'text-xs',style:{fontWeight:700,color:'#1D6F58'}},mod.st)
+   ));
+  }
+
   if(mod.t==='honor'){
    const cn=mod.center!==undefined?mod.center:'SCOTS ENGLISH VINSMART 2';
    const hfn=('VinhDanh_Top3_'+(c.code||c.name)+'_T'+c.month+'-'+c.year+'.png').replace(/[^\w.\-]+/g,'_');
@@ -943,6 +1331,7 @@ function App(){
    h('div',{className:'tb'},
     has&&h('button',{className:'bt g sm',onClick:()=>{setPd(null);setMod({t:'imp'})}},Ic('users',14),'Thêm học sinh'),
     h('button',{className:'bt g sm',onClick:()=>setMod({t:'star'})},Ic('sliders',14),'Cấu hình Star'),
+    h('button',{className:'bt g sm',onClick:()=>setMod({t:'backup',preview:null,st:''})},Ic('db',14),'Sao lưu (.json)'),
     h('button',{className:'bt g sm',onClick:reload},Ic('refresh',14),'Tải lại'),
     has&&dsel!==null&&h('button',{className:'bt t sm',onClick:()=>setMod({t:'zalo',d:dsel})},Ic('image',14),'Báo cáo Zalo'),
     has&&c.students.length>0&&h('button',{className:'bt g sm',onClick:()=>setMod({t:'zip',prog:'',busy:false})},Ic('archive',14),'Tải báo cáo (.zip)'),
@@ -950,15 +1339,25 @@ function App(){
    )
   ),
 
-  msg&&h('div',{className:'card text-sm',style:{fontWeight:600,color:'#134C81',background:'#F4F8FC'}},msg),
+  msg&&h('div',{className:'card text-sm',style:{fontWeight:600,color:'#134C81',background:'#F4F8FC',display:'flex',alignItems:'center',justifyContent:'space-between',gap:8}},
+   h('span',null,msg),
+   h('button',{className:'x',style:{width:26,height:26},onClick:()=>setMsg('')},Ic('x',14))
+  ),
   has&&info,
   has&&top,
+  has&&fltBar,
   has&&(mob?mview:tbl),
   !has&&h('div',{className:'card text-center text-sm text-slate-500 py-8'},A.name+' chưa có lớp nào trong tháng '+VM.m+'/'+VM.y+'. Bấm “+ Lớp mới” để khởi tạo.'),
   has&&c.students.length===0&&h('div',{className:'card text-center text-sm text-slate-500 py-6'},'Chưa có danh sách học sinh. Bấm “Thêm học sinh” ở thanh công cụ phía trên để dán danh sách.'),
   modal,modal2,
   zipTarget&&h('div',{style:{position:'fixed',left:-9999,top:0,pointerEvents:'none'}},
    zipTarget.type==='student'?scard(c,A.name,zipTarget.r,S.star,sref):zcard(c,A.name,zipTarget.zi,zref)
+  ),
+  /* Feature 3A: Floating 10-Second Undo Toast */
+  undo&&h('div',{className:'undo-toast'},
+   h('span',{style:{fontSize:12.5,fontWeight:600}},undo.label),
+   h('button',{className:'undo-btn',onClick:doUndo},Ic('undo',14),'Hoàn tác ('+undo.sec+'s)'),
+   h('button',{style:{border:0,background:'transparent',color:'rgba(255,255,255,.65)',padding:2,display:'inline-flex'},onClick:()=>{clearInterval(undoTm.current);setUndo(null)}},Ic('x',14))
   )
  );
 }
